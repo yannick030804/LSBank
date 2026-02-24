@@ -7,7 +7,4 @@
 
 
 #include <xc.h>
-
-void main(void) {
-    return;
-}
+#include "TAD_LEDS.h"

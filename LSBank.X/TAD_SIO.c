@@ -7,7 +7,32 @@
 
 
 #include <xc.h>
+#include "TAD_SIO.h"
 
-void main(void) {
-    return;
+//TODO
+void SIO_Init(void) {
+
+}
+
+int SIO_CharAvail(void) {
+    return PIR1bits.RCIF;
+}
+
+char SIO_TxAvail(void) {
+    return TXSTAbits.TRMT;
+}
+
+char SIO_GetChar(void) {
+    return RCREG;
+}
+
+void SIO_SendChar(char c) {
+    TXREG = c;
+    TXSTAbits.TXEN = 1;
+}
+
+void SIO_SendString(char *str) {
+    while(*str) {
+        SIO_SendChar(*str++)
+    }
 }
