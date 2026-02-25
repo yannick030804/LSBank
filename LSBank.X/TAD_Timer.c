@@ -10,8 +10,7 @@
 #include "TAD_Timer.h"
 
 #define T0CON_CONFIG 0x82
-//TODO
-#define RECARREGA_TMR0 x
+#define RECARREGA_TMR0 64911 //2ms
 
 #define TI_NUMTIMERS 10
 
@@ -22,7 +21,7 @@ struct Timer {
 
 static volatile unsigned long Tics = 0;
 
-void RSI_Timer0() {
+void RSI_Timer0 () {
     TMR0 = RECARREGA_TMR0;
     TMR0IF = 0;
     Tics++;
@@ -38,7 +37,7 @@ void TI_Init () {
     INTCONbits.TMR0IE = 1;
 }
 
-unsigned char TI_NewTimer(unsigned char *TimerHandle) {
+unsigned char TI_NewTimer (unsigned char *TimerHandle) {
     unsigned char Comptador = 0;
     while(Timers[Comptador].Busy == TI_CERT) {
         if(++Comptador == TI_NUMTIMERS) return (TI_FALS);
@@ -48,19 +47,19 @@ unsigned char TI_NewTimer(unsigned char *TimerHandle) {
     return (TI_CERT)
 }
 
-void TI_ResetTics(unsigned char TimerHandle) {
+void TI_ResetTics (unsigned char TimerHandle) {
     di();
     Timers[TimerHandle].TicsInicials = Tics;
     ei();
 }
 
-unsigned long TI_GetTics(unsigned char TimerHandle) {
+unsigned long TI_GetTics (unsigned char TimerHandle) {
     di();
     unsigned long CopiaTicsActual = Tics;
     ei();
     return (CopiaTicsActual - (Timers[TimerHandle].TicsInicials));
 }
 
-void TI_CloseTimer(unsigned char TimerHandle) {
+void TI_CloseTimer (unsigned char TimerHandle) {
     Timers[TimerHandle].Busy = TI_FALS;
 }

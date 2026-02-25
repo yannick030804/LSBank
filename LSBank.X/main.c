@@ -5,7 +5,6 @@
  * Created on 24 de febrero de 2026, 23:35
  */
 
-
 #include <xc.h>
 
 #include "TAD_Button.h"
@@ -26,12 +25,19 @@
 #pragma config BOR = OFF
 #pragma config LVP = OFF
 
-void __interrupt() RSI_HIG(void) {
+void __interrupt () RSI_HIGH (void) {
     if(INTCONbits.TMR0IF == 1) {
         RSI_Timer0();
     }
 }
 
-void main(void) {
-    return;
+void main (void) {
+    
+    SIO_Init();
+    TI_Init();
+    Matrix_Init();
+
+    while (1) {
+        Matrix_motor();
+    }
 }

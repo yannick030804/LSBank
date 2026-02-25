@@ -9,30 +9,38 @@
 #include <xc.h>
 #include "TAD_SIO.h"
 
-//TODO
-void SIO_Init(void) {
-
+void SIO_Init (void) {
+    TRISCbits.TRISC6 = 0;
+    TRISCbits.TRISC7 = 1;
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.BRGH = 1;
+    TXSTAbits.TXEN = 1;
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.CREN = 1;
+    BAUDCONbits.BRG16 = 1;
+    SPBRGH = 0x01;
+    SPBRG = 0x03;
 }
 
-int SIO_CharAvail(void) {
+int SIO_CharAvail (void) {
     return PIR1bits.RCIF;
 }
 
-char SIO_TxAvail(void) {
+char SIO_TxAvail (void) {
     return TXSTAbits.TRMT;
 }
 
-char SIO_GetChar(void) {
+char SIO_GetChar (void) {
     return RCREG;
 }
 
-void SIO_SendChar(char c) {
+void SIO_SendChar (char c) {
     TXREG = c;
     TXSTAbits.TXEN = 1;
 }
 
-void SIO_SendString(char *str) {
-    while(*str) {
+void SIO_SendString (char *str) {
+    while (*str) {
         SIO_SendChar(*str++)
     }
 }
