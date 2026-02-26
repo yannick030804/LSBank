@@ -11,6 +11,4 @@ char SIO_GetChar (void);
 
 void SIO_SendChar (char c);
 
-void SIO_SendString (char *str);
-
 #endif

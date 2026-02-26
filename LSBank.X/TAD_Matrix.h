@@ -13,6 +13,6 @@
 #define C1 LATDbits.LATD6
 #define C2 LATDbits.LATD7
 
-void Matrix_motor (void);
+void motorMatrix (void);
 
 #endif

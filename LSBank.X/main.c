@@ -38,6 +38,6 @@ void main (void) {
     Matrix_Init();
 
     while (1) {
-        Matrix_motor();
+        motorMatrix();
     }
 }

@@ -11,39 +11,72 @@
 
 static unsigned char rows;
 static unsigned char columns;
-static unsigned char key;
+static unsigned char newRow;
+static unsigned char newColumn;
+static unsigned char lastRow;
+static unsigned char lastColumn;
+
 static unsigned char timerHandle;
+static unsigned char timer1s;
+
+static const char* lista;
+static char key;
+static char lastKey;
+static unsigned char idx;
+static unsigned char editing;
 static unsigned char isPressed;
+static const char* const teclas[3][4] = {
+    {"1", "GHI4", "PQRS7", "*"},
+    {"ABC2", "JKL5", "TUV8", " 0"},
+    {"DEF3", "MNO6", "WXYZ9", "#"}
+};
 
 void Matrix_Init () {
     TI_NewTimer(&timerHandle);
+    TI_NewTimer(&timer1s);
     CONFIG_ROWS;
     CONFIG_COLS;
     INTCON2bits.NOT_RBPU = 0;
 }
 
 char keyPressed (void) {
-    return !(F0 && F1 && F2 && F3);
+    return (F0 == 0 || F1 == 0 || F2 == 0 || F3 == 0);
 }
 
 void getKey (void) {
     if (PORTBbits.RB0 == 0) {
         rows = 0;
-    }
-    if (PORTBbits.RB1 == 0) {
+    } else if (PORTBbits.RB1 == 0) {
         rows = 1;
-    }
-    if (PORTBbits.RB2 == 0) {
+    } else if (PORTBbits.RB2 == 0) {
         rows = 2;
-    }
-    if (PORTBbits.RB3 == 0) {
+    } else if (PORTBbits.RB3 == 0) {
         rows = 3;
     }
-    key = teclas[columns][rows]
+    lista = teclas[columns][rows];
+    idx = 0;
+    key = lista[idx];
 }
 
-void Matrix_motor (void) {
+void nextChar (void) {
+    if (lista == 0) {
+        return;
+    }
+    idx++;
+    if (lista[idx] == '\0') {
+        idx = 0;
+    }
+    key = lista[idx];
+}
+
+void motorMatrix (void) {
     static char state = 0;
+
+    if (editing == 1 && !keyPressed() && (TI_GetTics(timer1s) >= 500)) {
+        //TODO send key to SIO and save key
+        // SIO_SendChar(key);  o guardas evento para el Controller
+        editing = 0;
+    }
 
     switch (state) {
         case 0:
@@ -60,7 +93,7 @@ void Matrix_motor (void) {
             break;
         case 1:
             if (!keyPressed()) {
-                colums = 1;
+                columns = 1;
                 C0 = 1;
                 C1 = 0;
                 C2 = 1;
@@ -72,7 +105,7 @@ void Matrix_motor (void) {
             break;
         case 2:
             if (!keyPressed()) {
-                colums = 2;
+                columns = 2;
                 C0 = 1;
                 C1 = 1;
                 C2 = 0;
@@ -83,7 +116,44 @@ void Matrix_motor (void) {
             }
             break;
         case 3:
-            
+            if (!keyPressed()) {
+                state = 0;
+            } else if(TI_GetTics(timerHandle) > 8) {
+
+                if (F0 == 0) {
+                    newRow = 0;
+                } else  if (F1 == 0) {
+                    newRow = 1;
+                } else if (F2 == 0) {
+                    newRow = 2;
+                } else if (F3 == 0) {
+                    newRow = 3;
+                }
+                newColumn = columns;
+
+                TI_ResetTics(timer1s);
+
+                if (editing == 0) {
+                    lastRow = newRow;
+                    lastColumn = newColumn;
+                    rows = newRow;
+                    columns = newColumn;
+                    getKey();
+                    editing = 1;
+                } else {
+                    if (newColumn == lastColumn && newRow == lastRow) {
+                        nextChar();
+                    } else {
+                        //TODO send key to SIO and save key
+                        lastRow = newRow;
+                        lastColumn = newColumn;
+                        rows = newRow;
+                        columns = newColumn;
+                        getKey();
+                        editing = 1;
+                    }
+                }
+            }
             break;
     }
 }

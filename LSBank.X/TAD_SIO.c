@@ -19,7 +19,7 @@ void SIO_Init (void) {
     RCSTAbits.CREN = 1;
     BAUDCONbits.BRG16 = 1;
     SPBRGH = 0x01;
-    SPBRG = 0x03;
+    SPBRG = 64;
 }
 
 int SIO_CharAvail (void) {
@@ -37,10 +37,4 @@ char SIO_GetChar (void) {
 void SIO_SendChar (char c) {
     TXREG = c;
     TXSTAbits.TXEN = 1;
-}
-
-void SIO_SendString (char *str) {
-    while (*str) {
-        SIO_SendChar(*str++)
-    }
 }
