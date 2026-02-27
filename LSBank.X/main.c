@@ -38,10 +38,13 @@ void main (void) {
     Matrix_Init();
     Hall_Init();
     Button_Init();
+    LED_Init();
+    Speaker_Init();
 
     while (1) {
         motorMatrix();
         motorHall();
         motorButton();
+        motorLEDs();
     }
 }
