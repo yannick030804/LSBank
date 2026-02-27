@@ -28,11 +28,11 @@ void setIntensity (unsigned char aux) {
 }
 
 void setOK (unsigned char aux) {
-    LED_OK = aux;
+    LED_OK = (aux ? 1 : 0);
 }
 
 void setAlarm (unsigned char aux) {
-    LED_ALARM = aux;
+    LED_ALARM = (aux ? 1 : 0);
 }
 
 void motorLEDs (void) {
