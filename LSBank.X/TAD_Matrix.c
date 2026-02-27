@@ -8,6 +8,7 @@
 
 #include <xc.h>
 #include "TAD_Matrix.h"
+#include "TAD_SIO.h"
 
 static unsigned char rows;
 static unsigned char columns;
@@ -21,17 +22,21 @@ static unsigned char timer1s;
 
 static const char* lista;
 static char key;
-static char lastKey;
 static unsigned char idx;
 static unsigned char editing;
-static unsigned char isPressed;
 static const char* const teclas[3][4] = {
     {"1", "GHI4", "PQRS7", "*"},
     {"ABC2", "JKL5", "TUV8", " 0"},
     {"DEF3", "MNO6", "WXYZ9", "#"}
 };
 
-void Matrix_Init () {
+static unsigned char start = 0;
+
+static unsigned char password[8] = "DDMM---";
+static unsigned char count = 0;
+static unsigned char flag = 0;
+
+void Matrix_Init (void) {
     TI_NewTimer(&timerHandle);
     TI_NewTimer(&timer1s);
     CONFIG_ROWS;
@@ -69,12 +74,39 @@ void nextChar (void) {
     key = lista[idx];
 }
 
+unsigned char passwordSet (void) {
+    unsigned char aux = flag;
+    flag = 0;
+    return aux;
+}
+
+char* getPassword (void) {
+    return password;
+}
+
+void setStart (unsigned char st) {
+    start = st;
+}
+
 void motorMatrix (void) {
     static char state = 0;
 
+    if (start == 0) {
+        return;
+    }
+
     if (editing == 1 && !keyPressed() && (TI_GetTics(timer1s) >= 500)) {
-        //TODO send key to SIO and save key
-        // SIO_SendChar(key);  o guardas evento para el Controller
+        if (count < 7) {
+            password[count] = key;
+            SIO_SendChar(password[count]);
+            count++;
+        }
+        
+        if (count == 7) {
+            password[7] = '\0';
+            flag = 1;
+            count = 0;
+        }
         editing = 0;
     }
 
@@ -131,28 +163,59 @@ void motorMatrix (void) {
                 }
                 newColumn = columns;
 
+                if (newRow == 3 && ((newColumn == 0) || (newColumn == 2))) {
+                    state = 6;
+                    break;
+                }
+
                 TI_ResetTics(timer1s);
 
                 if (editing == 0) {
-                    lastRow = newRow;
-                    lastColumn = newColumn;
-                    rows = newRow;
-                    columns = newColumn;
-                    getKey();
-                    editing = 1;
+                    state = 4;
                 } else {
                     if (newColumn == lastColumn && newRow == lastRow) {
                         nextChar();
+                        state = 6;
                     } else {
-                        //TODO send key to SIO and save key
-                        lastRow = newRow;
-                        lastColumn = newColumn;
-                        rows = newRow;
-                        columns = newColumn;
-                        getKey();
-                        editing = 1;
+                        state = 5;
                     }
                 }
+            }
+            break;
+        case 4:
+            lastRow = newRow;
+            lastColumn = newColumn;
+            rows = newRow;
+            columns = newColumn;
+            getKey();
+            editing = 1;
+            state = 6;
+            break;
+        case 5:
+            if (count < 7) {
+                password[count] = key;
+                SIO_SendChar(password[count]);
+                count++;
+            }
+            if (count == 7) {
+                password[7] = '\0';
+                flag = 1;
+                count = 0;
+            }
+
+            lastRow = newRow;
+            lastColumn = newColumn;
+            rows = newRow;
+            columns = newColumn;
+
+            getKey();
+
+            editing = 1;
+            state = 6;
+            break;
+        case 6:
+            if (!keyPressed()) {
+                state = 0;
             }
             break;
     }

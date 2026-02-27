@@ -36,8 +36,12 @@ void main (void) {
     SIO_Init();
     TI_Init();
     Matrix_Init();
+    Hall_Init();
+    Button_Init();
 
     while (1) {
         motorMatrix();
+        motorHall();
+        motorButton();
     }
 }
