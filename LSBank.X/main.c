@@ -46,5 +46,6 @@ void main (void) {
         motorHall();
         motorButton();
         motorLEDs();
+        motorSpeaker();
     }
 }
