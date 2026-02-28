@@ -10,7 +10,7 @@
 
 void Speaker_Init (void);
 
-void setStart (unsigned char st);
+void setSpeaker (unsigned char st);
 
 void setStop (unsigned char st);
 

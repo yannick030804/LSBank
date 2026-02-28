@@ -26,7 +26,7 @@ void Speaker_Init (void) {
     SPEAKER = 0;
 }
 
-void setStart (unsigned char st) {
+void setSpeaker (unsigned char st) {
     start = st;
 }
 
@@ -43,7 +43,7 @@ Cuando se usa el speaker:
 5. Cuando se presiona el botón de exit y se responde con Yes, suena de forma aguda
 */
 
-void speaker_sound (unsigned char tipo, unsigned long duracion_ms) {
+void speaker_sound (unsigned char tipo, unsigned int duracion_ms) {
     if (soundActive) {
         return;
     }

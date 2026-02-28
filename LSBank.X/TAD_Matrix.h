@@ -21,6 +21,6 @@ unsigned char passwordSet (void);
 
 char* getPassword (void);
 
-void setStart (unsigned char st);
+void setMatrix (unsigned char st);
 
 #endif

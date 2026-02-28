@@ -40,6 +40,7 @@ void main (void) {
     Button_Init();
     LED_Init();
     Speaker_Init();
+    Controller_Init();
 
     while (1) {
         motorMatrix();
@@ -47,5 +48,6 @@ void main (void) {
         motorButton();
         motorLEDs();
         motorSpeaker();
+        motorController();
     }
 }

@@ -84,7 +84,7 @@ char* getPassword (void) {
     return password;
 }
 
-void setStart (unsigned char st) {
+void setMatrix (unsigned char st) {
     start = st;
 }
 

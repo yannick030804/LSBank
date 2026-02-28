@@ -44,7 +44,7 @@ unsigned char TI_NewTimer (unsigned char *TimerHandle) {
     }
     Timers[Comptador].Busy = TI_CERT;
     *TimerHandle = Comptador;
-    return (TI_CERT)
+    return (TI_CERT);
 }
 
 void TI_ResetTics (unsigned char TimerHandle) {
