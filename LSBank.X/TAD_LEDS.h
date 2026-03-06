@@ -11,7 +11,7 @@
 
 #define PWM_PERIOD_STEPS   10
 #define PWM_TIC_STEP       1
-#define RAMP_TICS          20
+#define RAMP_TICS          6000
 
 void LED_Init (void);
 

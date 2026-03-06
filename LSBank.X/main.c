@@ -43,11 +43,11 @@ void main (void) {
     Controller_Init();
 
     while (1) {
+        motorController();
         motorMatrix();
         motorHall();
         motorButton();
         motorLEDs();
         motorSpeaker();
-        motorController();
     }
 }

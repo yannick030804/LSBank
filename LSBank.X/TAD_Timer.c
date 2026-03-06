@@ -35,6 +35,8 @@ void TI_Init () {
     TMR0 = RECARREGA_TMR0;
     INTCONbits.TMR0IF = 0;
     INTCONbits.TMR0IE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
 }
 
 unsigned char TI_NewTimer (unsigned char *TimerHandle) {
