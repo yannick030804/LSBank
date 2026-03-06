@@ -9,6 +9,7 @@
 #include <xc.h>
 #include "TAD_Matrix.h"
 #include "TAD_SIO.h"
+#include "TAD_Timer.h"
 
 static unsigned char rows;
 static unsigned char columns;
@@ -32,7 +33,7 @@ static const char* const teclas[3][4] = {
 
 static unsigned char start = 0;
 
-static unsigned char password[8] = "DDMM---";
+static char password[8] = "DDMM---";
 static unsigned char count = 0;
 static unsigned char flag = 0;
 

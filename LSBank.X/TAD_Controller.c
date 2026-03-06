@@ -14,15 +14,16 @@
 #include "TAD_Speaker.h"
 #include "TAD_LEDS.h"
 #include "TAD_Button.h"
+#include "TAD_Matrix.h"
 
 static char i;
 static char tries;
 static unsigned char count;
 
 static unsigned char message;
-static unsigned char *uid_ptr;
-static unsigned char psswrd[] = PASSWORD;
-static unsigned char *password;
+static char *uid_ptr;
+static char psswrd[] = PASSWORD;
+static char *password;
 static char yes_aux[] = YES;
 static char yesBuf[4];
 static unsigned char yesIdx;
