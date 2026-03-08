@@ -18,8 +18,9 @@ void SIO_Init (void) {
     RCSTAbits.SPEN = 1;
     RCSTAbits.CREN = 1;
     BAUDCONbits.BRG16 = 1;
+    /* 9600 baud at 10 MHz: n = Fosc/(4*9600)-1 = 260 */
     SPBRGH = 0x01;
-    SPBRG = 64;
+    SPBRG = 4;
 }
 
 int SIO_CharAvail (void) {

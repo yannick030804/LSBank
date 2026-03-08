@@ -41,8 +41,9 @@ void main (void) {
     LED_Init();
     Speaker_Init();
     Controller_Init();
-
+    
     while (1) {
+        
         motorController();
         motorMatrix();
         motorHall();
