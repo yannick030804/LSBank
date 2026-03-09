@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v3.00\pic\dat\20241204225717_en.msgs \
   -cn -h+dist/default/debug\LSBank.X.debug.sym \
   --cmf=dist/default/debug\LSBank.X.debug.cmf -z -Q18F4321 \
-  -oC:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_3.o \
+  -oC:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/debug/LSBank.X.debug.map \
-  --md=C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler -ACODE=00h-01FFFh -ACONST=00h-01FFFh \
   -ASMALLCONST=0200h-02FFhx30 -AMEDIUMCONST=0200h-01FFFh -ACOMRAM=01h-07Fh \
   -AABS1=00h-01FFh -ABIGRAM=01h-01FFh -ARAM=080h-0FFh,0100h-01FFh \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_9.o \
+  C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_9.o \
   dist/default/debug\LSBank.X.debug.o 
 
 Object code version is 3.11
@@ -33,7 +33,7 @@ Machine type is 18F4321
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_9.o
+C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_9.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                 20       20        4        4       0
@@ -43,104 +43,104 @@ dist/default/debug\LSBank.X.debug.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 temp                                 6B       6B        1        1       1
-                mediumconst                        1E5E     1E5E      1A2      F2F       0
-                text38                             1670     1670       18        4       0
-                text36                             13A6     13A6       56        4       0
-                text35                             16C6     16C6        C        4       0
-                text34                             16FA     16FA        A        4       0
-                text33                             172C     172C        4        4       0
-                text32                             1658     1658       18        4       0
-                text31                             1600     1600       22        4       0
-                text30                             163E     163E       1A        4       0
-                text29                             1688     1688       16        4       0
-                text28                             155A     155A       38        4       0
-                text27                             13FC     13FC       4C        4       0
-                text26                             15DC     15DC       24        4       0
-                text25                             1156     1156       C6        4       0
-                text24                             1622     1622       1C        4       0
-                text23                             1728     1728        4        4       0
-                text22                             16F0     16F0        A        4       0
-                text21                             16B2     16B2       14        4       0
-                text20                             16E6     16E6        A        4       0
-                text19                             16DC     16DC        A        4       0
-                text18                             1724     1724        4        4       0
-                text17                             16D2     16D2        A        4       0
-                text16                             1592     1592       26        4       0
-                text15                             171C     171C        8        4       0
-                text14                             1714     1714        8        4       0
-                text13                             15B8     15B8       24        4       0
-                text12                             170C     170C        8        4       0
-                text11                             1704     1704        8        4       0
-                text10                             12CC     12CC       7C        4       0
-                text9                                24       24      B22        4       0
-                text8                              1448     1448       4A        4       0
-                text7                               F88      F88      104        4       0
-                text6                              121C     121C       B0        4       0
-                text5                              14D8     14D8       42        4       0
-                text4                              1348     1348       5E        4       0
-                text3                               B46      B46      324        4       0
-                text2                              108C     108C       CA        4       0
-                text1                               E6A      E6A      11E        4       0
-                text0                              151A     151A       40        4       0
+                mediumconst                        1E54     1E54      1AC      F2A       0
+                text38                             167A     167A       18        4       0
+                text36                             13AC     13AC       56        4       0
+                text35                             16D0     16D0        C        4       0
+                text34                             1704     1704        A        4       0
+                text33                             1736     1736        4        4       0
+                text32                             1662     1662       18        4       0
+                text31                             15BE     15BE       26        4       0
+                text30                             1648     1648       1A        4       0
+                text29                             1692     1692       16        4       0
+                text28                             1560     1560       38        4       0
+                text27                             1402     1402       4C        4       0
+                text26                             1608     1608       24        4       0
+                text25                             115C     115C       C6        4       0
+                text24                             162C     162C       1C        4       0
+                text23                             1732     1732        4        4       0
+                text22                             16FA     16FA        A        4       0
+                text21                             16BC     16BC       14        4       0
+                text20                             16F0     16F0        A        4       0
+                text19                             16E6     16E6        A        4       0
+                text18                             172E     172E        4        4       0
+                text17                             16DC     16DC        A        4       0
+                text16                             1598     1598       26        4       0
+                text15                             1726     1726        8        4       0
+                text14                             171E     171E        8        4       0
+                text13                             15E4     15E4       24        4       0
+                text12                             1716     1716        8        4       0
+                text11                             170E     170E        8        4       0
+                text10                             12D2     12D2       7C        4       0
+                text9                                24       24      B28        4       0
+                text8                              144E     144E       4A        4       0
+                text7                               F8E      F8E      104        4       0
+                text6                              1222     1222       B0        4       0
+                text5                              14DE     14DE       42        4       0
+                text4                              134E     134E       5E        4       0
+                text3                               B4C      B4C      324        4       0
+                text2                              1092     1092       CA        4       0
+                text1                               E70      E70      11E        4       0
+                text0                              1520     1520       40        4       0
                 cstackCOMRAM                         42       42       15        1       1
                 bssBANK0                             80       80       32       80       1
                 dataCOMRAM                           57       57       14        1       1
                 bssCOMRAM                             1        1       41        1       1
-                cinit                              1492     1492       46        4       0
-                idataCOMRAM                        169E     169E       14        4       0
+                cinit                              1498     1498       46        4       0
+                idataCOMRAM                        16A8     16A8       14        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 intcode                               8        8       18         0
                 init                                 20       20        4         0
                 reset_vec                             0        0        4         0
-                text38                             1670     1670       18         0
-                text36                             13A6     13A6       56         0
-                text35                             16C6     16C6        C         0
-                text34                             16FA     16FA        A         0
-                text33                             172C     172C        4         0
-                text32                             1658     1658       18         0
-                text31                             1600     1600       22         0
-                text30                             163E     163E       1A         0
-                text29                             1688     1688       16         0
-                text28                             155A     155A       38         0
-                text27                             13FC     13FC       4C         0
-                text26                             15DC     15DC       24         0
-                text25                             1156     1156       C6         0
-                text24                             1622     1622       1C         0
-                text23                             1728     1728        4         0
-                text22                             16F0     16F0        A         0
-                text21                             16B2     16B2       14         0
-                text20                             16E6     16E6        A         0
-                text19                             16DC     16DC        A         0
-                text18                             1724     1724        4         0
-                text17                             16D2     16D2        A         0
-                text16                             1592     1592       26         0
-                text15                             171C     171C        8         0
-                text14                             1714     1714        8         0
-                text13                             15B8     15B8       24         0
-                text12                             170C     170C        8         0
-                text11                             1704     1704        8         0
-                text10                             12CC     12CC       7C         0
-                text9                                24       24      B22         0
-                text8                              1448     1448       4A         0
-                text7                               F88      F88      104         0
-                text6                              121C     121C       B0         0
-                text5                              14D8     14D8       42         0
-                text4                              1348     1348       5E         0
-                text3                               B46      B46      324         0
-                text2                              108C     108C       CA         0
-                text1                               E6A      E6A      11E         0
-                text0                              151A     151A       40         0
-                cinit                              1492     1492       46         0
-                idataCOMRAM                        169E     169E       14         0
+                text38                             167A     167A       18         0
+                text36                             13AC     13AC       56         0
+                text35                             16D0     16D0        C         0
+                text34                             1704     1704        A         0
+                text33                             1736     1736        4         0
+                text32                             1662     1662       18         0
+                text31                             15BE     15BE       26         0
+                text30                             1648     1648       1A         0
+                text29                             1692     1692       16         0
+                text28                             1560     1560       38         0
+                text27                             1402     1402       4C         0
+                text26                             1608     1608       24         0
+                text25                             115C     115C       C6         0
+                text24                             162C     162C       1C         0
+                text23                             1732     1732        4         0
+                text22                             16FA     16FA        A         0
+                text21                             16BC     16BC       14         0
+                text20                             16F0     16F0        A         0
+                text19                             16E6     16E6        A         0
+                text18                             172E     172E        4         0
+                text17                             16DC     16DC        A         0
+                text16                             1598     1598       26         0
+                text15                             1726     1726        8         0
+                text14                             171E     171E        8         0
+                text13                             15E4     15E4       24         0
+                text12                             1716     1716        8         0
+                text11                             170E     170E        8         0
+                text10                             12D2     12D2       7C         0
+                text9                                24       24      B28         0
+                text8                              144E     144E       4A         0
+                text7                               F8E      F8E      104         0
+                text6                              1222     1222       B0         0
+                text5                              14DE     14DE       42         0
+                text4                              134E     134E       5E         0
+                text3                               B4C      B4C      324         0
+                text2                              1092     1092       CA         0
+                text1                               E70      E70      11E         0
+                text0                              1520     1520       40         0
+                cinit                              1498     1498       46         0
+                idataCOMRAM                        16A8     16A8       14         0
 
         CLASS   CONST          
 
         CLASS   SMALLCONST     
 
         CLASS   MEDIUMCONST    
-                mediumconst                        1E5E     1E5E      1A2         0
+                mediumconst                        1E54     1E54      1AC         0
 
         CLASS   COMRAM         
                 temp                                 6B       6B        1         1
@@ -183,9 +183,9 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 bssCOMRAM                      000001  00006B  00006C         1       1  COMRAM  
-                intcode                        000008  001728  001730         4       0  CODE    
+                intcode                        000008  001732  00173A         4       0  CODE    
                 bssBANK0                       000080  000032  0000B2        80       1  BANK0   
-                mediumconst                    001E5E  0001A2  002000       F2F       0  MEDIUMCO
+                mediumconst                    001E54  0001AC  002000       F2A       0  MEDIUMCO
 
 
 UNUSED ADDRESS RANGES
@@ -197,15 +197,15 @@ UNUSED ADDRESS RANGES
                          0000B2-0001FF              14E
         BIGSFR           000F80-000FFF               80
         CODE             000004-000007                4
-                         001730-001E5D              72E
+                         00173A-001E53              71A
         COMRAM           00006C-00007F               14
         CONST            000004-000007                4
-                         001730-001E5D              72E
+                         00173A-001E53              71A
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      001730-001E5D              72E
+        MEDIUMCONST      00173A-001E53              71A
         RAM              0000B2-0001FF               4E
         SFR              000F80-000FFF               80
-        SMALLCONST       001730-001E5D              100
+        SMALLCONST       00173A-001E53              100
 
                                   Symbol Table
 
@@ -218,35 +218,36 @@ TI_Init@counter                    cstackCOMRAM 000042
 TI_NewTimer@Comptador              cstackCOMRAM 000044
 TI_NewTimer@TimerHandle            cstackCOMRAM 000042
 TI_ResetTics@TimerHandle           cstackCOMRAM 000042
+_ADCON1                            (abs)        000FC1
 _BAUDCONbits                       (abs)        000FB8
-_Button_Init                       text35       0016C6
-_Controller_Init                   text34       0016FA
-_Hall_Init                         text33       00172C
+_Button_Init                       text35       0016D0
+_Controller_Init                   text34       001704
+_Hall_Init                         text33       001736
 _INTCON2bits                       (abs)        000FF1
 _INTCONbits                        (abs)        000FF2
 _LATCbits                          (abs)        000F8B
 _LATDbits                          (abs)        000F8C
-_LED_Init                          text32       001658
-_Matrix_Init                       text31       001600
+_LED_Init                          text32       001662
+_Matrix_Init                       text31       0015BE
 _PIR1bits                          (abs)        000F9E
 _PORTBbits                         (abs)        000F81
 _RCREG                             (abs)        000FAE
 _RCSTAbits                         (abs)        000FAB
 _RSI_HIGH                          intcode      000008
-_RSI_Timer0                        text38       001670
-_SIO_CharAvail                     text24       001622
-_SIO_GetChar                       text23       001728
-_SIO_Init                          text30       00163E
-_SIO_SendChar                      text22       0016F0
-_SIO_TxAvail                       text21       0016B2
+_RSI_Timer0                        text38       00167A
+_SIO_CharAvail                     text24       00162C
+_SIO_GetChar                       text23       001732
+_SIO_Init                          text30       001648
+_SIO_SendChar                      text22       0016FA
+_SIO_TxAvail                       text21       0016BC
 _SPBRG                             (abs)        000FAF
 _SPBRGH                            (abs)        000FB0
-_Speaker_Init                      text29       001688
+_Speaker_Init                      text29       001692
 _T0CON                             (abs)        000FD5
-_TI_GetTics                        text27       0013FC
-_TI_Init                           text28       00155A
-_TI_NewTimer                       text36       0013A6
-_TI_ResetTics                      text26       0015DC
+_TI_GetTics                        text27       001402
+_TI_Init                           text28       001560
+_TI_NewTimer                       text36       0013AC
+_TI_ResetTics                      text26       001608
 _TMR0                              (abs)        000FD6
 _TMR0IF                            (abs)        007F92
 _TRISBbits                         (abs)        000F93
@@ -393,7 +394,7 @@ __Lintentry                        intentry     000000
 __Lintret                          intret       000000
 __Lintsave_regs                    intsave_regs 000000
 __Lirdata                          irdata       000000
-__Lmediumconst                     mediumconst  001E5E
+__Lmediumconst                     mediumconst  001E54
 __LnvFARRAM                        nvFARRAM     000000
 __Lnvbit                           nvbit        000000
 __Lnvrram                          nvrram       000000
@@ -475,155 +476,155 @@ ___stack_hi                        stack        000000
 ___stack_lo                        stack        000000
 __accesstop                        (abs)        000080
 __activetblptr                     (abs)        000002
-__end_of_Button_Init               text35       0016D2
-__end_of_Controller_Init           text34       001704
-__end_of_Hall_Init                 text33       001730
-__end_of_LED_Init                  text32       001670
-__end_of_Matrix_Init               text31       001622
+__end_of_Button_Init               text35       0016DC
+__end_of_Controller_Init           text34       00170E
+__end_of_Hall_Init                 text33       00173A
+__end_of_LED_Init                  text32       00167A
+__end_of_Matrix_Init               text31       0015E4
 __end_of_RSI_HIGH                  intcode      000020
-__end_of_RSI_Timer0                text38       001688
-__end_of_SIO_CharAvail             text24       00163E
-__end_of_SIO_GetChar               text23       00172C
-__end_of_SIO_Init                  text30       001658
-__end_of_SIO_SendChar              text22       0016FA
-__end_of_SIO_TxAvail               text21       0016C6
-__end_of_Speaker_Init              text29       00169E
-__end_of_TI_GetTics                text27       001448
-__end_of_TI_Init                   text28       001592
-__end_of_TI_NewTimer               text36       0013FC
-__end_of_TI_ResetTics              text26       001600
-__end_of__initialization           cinit        0014CA
-__end_of_getButton                 text20       0016F0
-__end_of_getHall                   text19       0016E6
-__end_of_getKey                    text6        0012CC
-__end_of_getPassword               text18       001728
-__end_of_keyPressed                text5        00151A
-__end_of_main                      text0        00155A
-__end_of_motorButton               text25       00121C
-__end_of_motorController           text9        000B46
-__end_of_motorHall                 text8        001492
-__end_of_motorLEDs                 text7        00108C
-__end_of_motorMatrix               text3        000E6A
-__end_of_motorSpeaker              text1        000F88
-__end_of_nextChar                  text4        0013A6
-__end_of_passwordSet               text17       0016DC
-__end_of_processSpeakerSound       text2        001156
-__end_of_setAlarm                  text16       0015B8
-__end_of_setIntensity              text15       001724
-__end_of_setMatrix                 text14       00171C
-__end_of_setOK                     text13       0015DC
-__end_of_setSpeaker                text12       001714
-__end_of_setStop                   text11       00170C
-__end_of_speaker_sound             text10       001348
-__end_of_teclas                    mediumconst  001E77
-__initialization                   cinit        001492
-__mediumconst                      mediumconst  001E5E
+__end_of_RSI_Timer0                text38       001692
+__end_of_SIO_CharAvail             text24       001648
+__end_of_SIO_GetChar               text23       001736
+__end_of_SIO_Init                  text30       001662
+__end_of_SIO_SendChar              text22       001704
+__end_of_SIO_TxAvail               text21       0016D0
+__end_of_Speaker_Init              text29       0016A8
+__end_of_TI_GetTics                text27       00144E
+__end_of_TI_Init                   text28       001598
+__end_of_TI_NewTimer               text36       001402
+__end_of_TI_ResetTics              text26       00162C
+__end_of__initialization           cinit        0014D0
+__end_of_getButton                 text20       0016FA
+__end_of_getHall                   text19       0016F0
+__end_of_getKey                    text6        0012D2
+__end_of_getPassword               text18       001732
+__end_of_keyPressed                text5        001520
+__end_of_main                      text0        001560
+__end_of_motorButton               text25       001222
+__end_of_motorController           text9        000B4C
+__end_of_motorHall                 text8        001498
+__end_of_motorLEDs                 text7        001092
+__end_of_motorMatrix               text3        000E70
+__end_of_motorSpeaker              text1        000F8E
+__end_of_nextChar                  text4        0013AC
+__end_of_passwordSet               text17       0016E6
+__end_of_processSpeakerSound       text2        00115C
+__end_of_setAlarm                  text16       0015BE
+__end_of_setIntensity              text15       00172E
+__end_of_setMatrix                 text14       001726
+__end_of_setOK                     text13       001608
+__end_of_setSpeaker                text12       00171E
+__end_of_setStop                   text11       001716
+__end_of_speaker_sound             text10       00134E
+__end_of_teclas                    mediumconst  001E6D
+__initialization                   cinit        001498
+__mediumconst                      mediumconst  001E54
 __pbssBANK0                        bssBANK0     000080
 __pbssCOMRAM                       bssCOMRAM    000001
-__pcinit                           cinit        001492
+__pcinit                           cinit        001498
 __pcstackCOMRAM                    cstackCOMRAM 000042
 __pdataCOMRAM                      dataCOMRAM   000057
-__pidataCOMRAM                     idataCOMRAM  00169E
+__pidataCOMRAM                     idataCOMRAM  0016A8
 __pintcode                         intcode      000008
-__pmediumconst                     mediumconst  001E5E
-__ptext0                           text0        00151A
-__ptext1                           text1        000E6A
-__ptext10                          text10       0012CC
-__ptext11                          text11       001704
-__ptext12                          text12       00170C
-__ptext13                          text13       0015B8
-__ptext14                          text14       001714
-__ptext15                          text15       00171C
-__ptext16                          text16       001592
-__ptext17                          text17       0016D2
-__ptext18                          text18       001724
-__ptext19                          text19       0016DC
-__ptext2                           text2        00108C
-__ptext20                          text20       0016E6
-__ptext21                          text21       0016B2
-__ptext22                          text22       0016F0
-__ptext23                          text23       001728
-__ptext24                          text24       001622
-__ptext25                          text25       001156
-__ptext26                          text26       0015DC
-__ptext27                          text27       0013FC
-__ptext28                          text28       00155A
-__ptext29                          text29       001688
-__ptext3                           text3        000B46
-__ptext30                          text30       00163E
-__ptext31                          text31       001600
-__ptext32                          text32       001658
-__ptext33                          text33       00172C
-__ptext34                          text34       0016FA
-__ptext35                          text35       0016C6
-__ptext36                          text36       0013A6
-__ptext38                          text38       001670
-__ptext4                           text4        001348
-__ptext5                           text5        0014D8
-__ptext6                           text6        00121C
-__ptext7                           text7        000F88
-__ptext8                           text8        001448
+__pmediumconst                     mediumconst  001E54
+__ptext0                           text0        001520
+__ptext1                           text1        000E70
+__ptext10                          text10       0012D2
+__ptext11                          text11       00170E
+__ptext12                          text12       001716
+__ptext13                          text13       0015E4
+__ptext14                          text14       00171E
+__ptext15                          text15       001726
+__ptext16                          text16       001598
+__ptext17                          text17       0016DC
+__ptext18                          text18       00172E
+__ptext19                          text19       0016E6
+__ptext2                           text2        001092
+__ptext20                          text20       0016F0
+__ptext21                          text21       0016BC
+__ptext22                          text22       0016FA
+__ptext23                          text23       001732
+__ptext24                          text24       00162C
+__ptext25                          text25       00115C
+__ptext26                          text26       001608
+__ptext27                          text27       001402
+__ptext28                          text28       001560
+__ptext29                          text29       001692
+__ptext3                           text3        000B4C
+__ptext30                          text30       001648
+__ptext31                          text31       0015BE
+__ptext32                          text32       001662
+__ptext33                          text33       001736
+__ptext34                          text34       001704
+__ptext35                          text35       0016D0
+__ptext36                          text36       0013AC
+__ptext38                          text38       00167A
+__ptext4                           text4        00134E
+__ptext5                           text5        0014DE
+__ptext6                           text6        001222
+__ptext7                           text7        000F8E
+__ptext8                           text8        00144E
 __ptext9                           text9        000024
 __ramtop                           ramtop       000200
-__smallconst                       mediumconst  001E5E
+__smallconst                       mediumconst  001E54
 _columns                           bssCOMRAM    00002D
 _count                             bssCOMRAM    000039
-_count@TAD_Controller$F1158        bssCOMRAM    00001D
-_count@TAD_Matrix$F1043            bssCOMRAM    000024
+_count@TAD_Controller$F1159        bssCOMRAM    00001D
+_count@TAD_Matrix$F1044            bssCOMRAM    000024
 _editing                           bssCOMRAM    000026
 _flag                              bssCOMRAM    000032
-_flag@TAD_Matrix$F1044             bssCOMRAM    000023
-_getButton                         text20       0016E6
-_getHall                           text19       0016DC
-_getKey                            text6        00121C
-_getPassword                       text18       001724
+_flag@TAD_Matrix$F1045             bssCOMRAM    000023
+_getButton                         text20       0016F0
+_getHall                           text19       0016E6
+_getKey                            text6        001222
+_getPassword                       text18       00172E
 _hallEvent                         bssCOMRAM    000034
 _i                                 bssCOMRAM    00001F
 _idx                               bssCOMRAM    000027
 _isPressed                         bssCOMRAM    000021
 _key                               bssCOMRAM    000028
-_keyPressed                        text5        0014D8
-_keyPressed$1049                   cstackCOMRAM 000042
+_keyPressed                        text5        0014DE
+_keyPressed$1050                   cstackCOMRAM 000042
 _lastColumn                        bssCOMRAM    000029
 _lastRow                           bssCOMRAM    00002A
 _lista                             bssCOMRAM    000017
-_main                              text0        00151A
-_motorButton                       text25       001156
+_main                              text0        001520
+_motorButton                       text25       00115C
 _motorController                   text9        000024
-_motorHall                         text8        001448
-_motorLEDs                         text7        000F88
-_motorMatrix                       text3        000B46
-_motorSpeaker                      text1        000E6A
+_motorHall                         text8        00144E
+_motorLEDs                         text7        000F8E
+_motorMatrix                       text3        000B4C
+_motorSpeaker                      text1        000E70
 _newColumn                         bssCOMRAM    00002B
 _newRow                            bssCOMRAM    00002C
-_nextChar                          text4        001348
+_nextChar                          text4        00134E
 _password                          dataCOMRAM   000063
-_password@TAD_Controller$F1162     bssCOMRAM    00001B
-_passwordSet                       text17       0016D2
-_processSpeakerSound               text2        00108C
+_password@TAD_Controller$F1163     bssCOMRAM    00001B
+_passwordSet                       text17       0016DC
+_processSpeakerSound               text2        001092
 _psswrd                            dataCOMRAM   000057
 _rows                              bssCOMRAM    00002E
-_setAlarm                          text16       001592
-_setIntensity                      text15       00171C
-_setMatrix                         text14       001714
-_setOK                             text13       0015B8
-_setSpeaker                        text12       00170C
-_setStop                           text11       001704
+_setAlarm                          text16       001598
+_setIntensity                      text15       001726
+_setMatrix                         text14       00171E
+_setOK                             text13       0015E4
+_setSpeaker                        text12       001716
+_setStop                           text11       00170E
 _soundActive                       bssCOMRAM    000036
 _soundDuration                     bssCOMRAM    00000D
 _soundPeriod                       bssCOMRAM    000009
 _soundTimerHandle                  bssCOMRAM    000040
-_speaker_sound                     text10       0012CC
+_speaker_sound                     text10       0012D2
 _speaker_sound$325                 cstackCOMRAM 00004A
 _start                             bssCOMRAM    000038
-_start@TAD_Matrix$F1041            bssCOMRAM    000025
+_start@TAD_Matrix$F1042            bssCOMRAM    000025
 _stop                              bssCOMRAM    000037
-_teclas                            mediumconst  001E5F
+_teclas                            mediumconst  001E55
 _timer1s                           bssCOMRAM    00003C
 _timerHandle                       bssCOMRAM    000041
-_timerHandle@TAD_Button$F1131      bssCOMRAM    00003B
-_timerHandle@TAD_Controller$F1166  bssCOMRAM    00003A
-_timerHandle@TAD_Matrix$F1021      bssCOMRAM    00003D
+_timerHandle@TAD_Button$F1132      bssCOMRAM    00003B
+_timerHandle@TAD_Controller$F1167  bssCOMRAM    00003A
+_timerHandle@TAD_Matrix$F1022      bssCOMRAM    00003D
 _timerPWM                          bssCOMRAM    00003F
 _timerRamp                         bssCOMRAM    00003E
 _tries                             bssCOMRAM    00001E
@@ -632,7 +633,7 @@ _yesBuf                            bssCOMRAM    000001
 _yesIdx                            bssCOMRAM    00001A
 _yes_aux                           dataCOMRAM   00005F
 btemp                              temp         00006B
-end_of_initialization              cinit        0014CA
+end_of_initialization              cinit        0014D0
 getButton@aux                      cstackCOMRAM 000042
 getHall@aux                        cstackCOMRAM 000042
 int$flags                          temp         00006B
@@ -644,7 +645,7 @@ isa$std                            (abs)        000001
 isa$xinst                          (abs)        000000
 motorButton@state                  bssCOMRAM    000020
 motorController@c                  cstackCOMRAM 000051
-motorController@c_1196             cstackCOMRAM 000052
+motorController@c_1197             cstackCOMRAM 000052
 motorController@state              bssCOMRAM    000019
 motorHall@state                    bssCOMRAM    000033
 motorLEDs@duty                     bssCOMRAM    00002F
@@ -666,7 +667,7 @@ speaker_sound@tipo                 cstackCOMRAM 000049
 stackhi                            (abs)        000000
 stacklo                            (abs)        000000
 start                              init         000020
-start_initialization               cinit        001492
+start_initialization               cinit        001498
 ttemp5                             temp         00006C
 ttemp6                             temp         00006F
 ttemp7                             temp         000073
@@ -677,82 +678,82 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 TAD_Button.c
-		_Button_Init   		CODE           	16C6	0000	12
-		_getButton     		CODE           	16E6	0000	10
-		_motorButton   		CODE           	1156	0000	198
+		_Button_Init   		CODE           	16D0	0000	12
+		_getButton     		CODE           	16F0	0000	10
+		_motorButton   		CODE           	115C	0000	198
 
 TAD_Button.c estimated size: 220
 
 TAD_Timer.c
-		_TI_ResetTics  		CODE           	15DC	0000	36
-		_TI_NewTimer   		CODE           	13A6	0000	86
-		_RSI_Timer0    		CODE           	1670	0000	24
-		_TI_Init       		CODE           	155A	0000	56
-		_TI_GetTics    		CODE           	13FC	0000	76
+		_TI_ResetTics  		CODE           	1608	0000	36
+		_TI_NewTimer   		CODE           	13AC	0000	86
+		_RSI_Timer0    		CODE           	167A	0000	24
+		_TI_Init       		CODE           	1560	0000	56
+		_TI_GetTics    		CODE           	1402	0000	76
 
 TAD_Timer.c estimated size: 278
 
 TAD_LEDS.c
-		_LED_Init      		CODE           	1658	0000	24
-		_setIntensity  		CODE           	171C	0000	8
-		_setOK         		CODE           	15B8	0000	36
-		_motorLEDs     		CODE           	0F88	0000	260
-		_setAlarm      		CODE           	1592	0000	38
+		_LED_Init      		CODE           	1662	0000	24
+		_setIntensity  		CODE           	1726	0000	8
+		_setOK         		CODE           	15E4	0000	36
+		_motorLEDs     		CODE           	0F8E	0000	260
+		_setAlarm      		CODE           	1598	0000	38
 
 TAD_LEDS.c estimated size: 366
 
 TAD_Matrix.c
-		_motorMatrix   		CODE           	0B46	0000	804
-		_setMatrix     		CODE           	1714	0000	8
-		_passwordSet   		CODE           	16D2	0000	10
-		_Matrix_Init   		CODE           	1600	0000	34
-		_nextChar      		CODE           	1348	0000	94
-		_getPassword   		CODE           	1724	0000	4
-		_getKey        		CODE           	121C	0000	176
-		_keyPressed    		CODE           	14D8	0000	66
+		_motorMatrix   		CODE           	0B4C	0000	804
+		_setMatrix     		CODE           	171E	0000	8
+		_passwordSet   		CODE           	16DC	0000	10
+		_Matrix_Init   		CODE           	15BE	0000	38
+		_nextChar      		CODE           	134E	0000	94
+		_getPassword   		CODE           	172E	0000	4
+		_getKey        		CODE           	1222	0000	176
+		_keyPressed    		CODE           	14DE	0000	66
 
-TAD_Matrix.c estimated size: 1196
+TAD_Matrix.c estimated size: 1200
 
 TAD_SIO.c
-		_SIO_CharAvail 		CODE           	1622	0000	28
-		_SIO_TxAvail   		CODE           	16B2	0000	20
-		_SIO_Init      		CODE           	163E	0000	26
-		_SIO_SendChar  		CODE           	16F0	0000	10
-		_SIO_GetChar   		CODE           	1728	0000	4
+		_SIO_CharAvail 		CODE           	162C	0000	28
+		_SIO_TxAvail   		CODE           	16BC	0000	20
+		_SIO_Init      		CODE           	1648	0000	26
+		_SIO_SendChar  		CODE           	16FA	0000	10
+		_SIO_GetChar   		CODE           	1732	0000	4
 
 TAD_SIO.c estimated size: 88
 
 shared
-		_teclas        		MEDIUMCONST    	1E5F	0000	24
-		__initialization		CODE           	1492	0000	56
+		_teclas        		MEDIUMCONST    	1E55	0000	24
+		__initialization		CODE           	1498	0000	56
 
 shared estimated size: 80
 
 TAD_Hall.c
-		_motorHall     		CODE           	1448	0000	74
-		_getHall       		CODE           	16DC	0000	10
-		_Hall_Init     		CODE           	172C	0000	4
+		_motorHall     		CODE           	144E	0000	74
+		_getHall       		CODE           	16E6	0000	10
+		_Hall_Init     		CODE           	1736	0000	4
 
 TAD_Hall.c estimated size: 88
 
 TAD_Controller.c
-		_Controller_Init		CODE           	16FA	0000	10
-		_motorController		CODE           	0024	0000	2850
+		_Controller_Init		CODE           	1704	0000	10
+		_motorController		CODE           	0024	0000	2856
 
-TAD_Controller.c estimated size: 2860
+TAD_Controller.c estimated size: 2866
 
 TAD_Speaker.c
-		_processSpeakerSound		CODE           	108C	0000	202
-		_speaker_sound 		CODE           	12CC	0000	124
-		_setSpeaker    		CODE           	170C	0000	8
-		_motorSpeaker  		CODE           	0E6A	0000	286
-		_Speaker_Init  		CODE           	1688	0000	22
-		_setStop       		CODE           	1704	0000	8
+		_processSpeakerSound		CODE           	1092	0000	202
+		_speaker_sound 		CODE           	12D2	0000	124
+		_setSpeaker    		CODE           	1716	0000	8
+		_motorSpeaker  		CODE           	0E70	0000	286
+		_Speaker_Init  		CODE           	1692	0000	22
+		_setStop       		CODE           	170E	0000	8
 
 TAD_Speaker.c estimated size: 650
 
 main.c
-		_main          		CODE           	151A	0000	64
+		_main          		CODE           	1520	0000	64
 		_RSI_HIGH      		CODE           	0008	0000	24
 
 main.c estimated size: 88

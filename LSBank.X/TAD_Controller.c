@@ -144,6 +144,7 @@ void motorController (void) {
                     uid_ptr = OPEN_INTERIOR_DOOR;
                     state = 15;
                 } else {
+                    SIO_SendChar('\r');
                     SIO_SendChar('\n');
                     uid_ptr = PERMISSION_DENIED;
                     state = 9;

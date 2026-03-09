@@ -1,4 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"4714 C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4321.h
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4321.h: 4714: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "11 ./TAD_Timer.h
 [; ;./TAD_Timer.h: 11: unsigned char TI_NewTimer (unsigned char *TimerHandle);
 [v _TI_NewTimer `(uc ~T0 @X0 0 ef1`*uc ]
@@ -617,620 +620,623 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _Matrix_Init ]
 [f ]
-"41
-[; ;TAD_Matrix.c: 41:     TI_NewTimer(&timerHandle);
-[e ( _TI_NewTimer (1 &U _timerHandle ]
 "42
-[; ;TAD_Matrix.c: 42:     TI_NewTimer(&timer1s);
-[e ( _TI_NewTimer (1 &U _timer1s ]
-"43
-[; ;TAD_Matrix.c: 43:     TRISBbits.TRISB0 = TRISBbits.TRISB1 = TRISBbits.TRISB2 = TRISBbits.TRISB3 = 1;
-[e = . . _TRISBbits 0 0 = . . _TRISBbits 0 1 = . . _TRISBbits 0 2 = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+[; ;TAD_Matrix.c: 42:     ADCON1 = 0x0F;
+[e = _ADCON1 -> -> 15 `i `uc ]
 "44
-[; ;TAD_Matrix.c: 44:     TRISDbits.TRISD5 = TRISDbits.TRISD6 = TRISDbits.TRISD7 = 0;
-[e = . . _TRISDbits 0 5 = . . _TRISDbits 0 6 = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+[; ;TAD_Matrix.c: 44:     TI_NewTimer(&timerHandle);
+[e ( _TI_NewTimer (1 &U _timerHandle ]
 "45
-[; ;TAD_Matrix.c: 45:     INTCON2bits.NOT_RBPU = 0;
-[e = . . _INTCON2bits 0 1 -> -> 0 `i `uc ]
+[; ;TAD_Matrix.c: 45:     TI_NewTimer(&timer1s);
+[e ( _TI_NewTimer (1 &U _timer1s ]
 "46
-[; ;TAD_Matrix.c: 46: }
+[; ;TAD_Matrix.c: 46:     TRISBbits.TRISB0 = TRISBbits.TRISB1 = TRISBbits.TRISB2 = TRISBbits.TRISB3 = 1;
+[e = . . _TRISBbits 0 0 = . . _TRISBbits 0 1 = . . _TRISBbits 0 2 = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+"47
+[; ;TAD_Matrix.c: 47:     TRISDbits.TRISD5 = TRISDbits.TRISD6 = TRISDbits.TRISD7 = 0;
+[e = . . _TRISDbits 0 5 = . . _TRISDbits 0 6 = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"48
+[; ;TAD_Matrix.c: 48:     INTCON2bits.NOT_RBPU = 0;
+[e = . . _INTCON2bits 0 1 -> -> 0 `i `uc ]
+"49
+[; ;TAD_Matrix.c: 49: }
 [e :UE 302 ]
 }
-"48
-[; ;TAD_Matrix.c: 48: char keyPressed (void) {
+"51
+[; ;TAD_Matrix.c: 51: char keyPressed (void) {
 [v _keyPressed `(uc ~T0 @X0 1 ef ]
 {
 [e :U _keyPressed ]
 [f ]
-"49
-[; ;TAD_Matrix.c: 49:     return (PORTBbits.RB0 == 0 || PORTBbits.RB1 == 0 || PORTBbits.RB2 == 0 || PORTBbits.RB3 == 0);
+"52
+[; ;TAD_Matrix.c: 52:     return (PORTBbits.RB0 == 0 || PORTBbits.RB1 == 0 || PORTBbits.RB2 == 0 || PORTBbits.RB3 == 0);
 [e ) -> -> || || || == -> . . _PORTBbits 0 0 `i -> 0 `i == -> . . _PORTBbits 0 1 `i -> 0 `i == -> . . _PORTBbits 0 2 `i -> 0 `i == -> . . _PORTBbits 0 3 `i -> 0 `i `i `uc ]
 [e $UE 303  ]
-"50
-[; ;TAD_Matrix.c: 50: }
+"53
+[; ;TAD_Matrix.c: 53: }
 [e :UE 303 ]
 }
-"52
-[; ;TAD_Matrix.c: 52: void getKey (void) {
+"55
+[; ;TAD_Matrix.c: 55: void getKey (void) {
 [v _getKey `(v ~T0 @X0 1 ef ]
 {
 [e :U _getKey ]
 [f ]
-"53
-[; ;TAD_Matrix.c: 53:     if (PORTBbits.RB0 == 0) {
+"56
+[; ;TAD_Matrix.c: 56:     if (PORTBbits.RB0 == 0) {
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 305  ]
 {
-"54
-[; ;TAD_Matrix.c: 54:         rows = 0;
+"57
+[; ;TAD_Matrix.c: 57:         rows = 0;
 [e = _rows -> -> 0 `i `uc ]
-"55
-[; ;TAD_Matrix.c: 55:     } else if (PORTBbits.RB1 == 0) {
+"58
+[; ;TAD_Matrix.c: 58:     } else if (PORTBbits.RB1 == 0) {
 }
 [e $U 306  ]
 [e :U 305 ]
 [e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 307  ]
 {
-"56
-[; ;TAD_Matrix.c: 56:         rows = 1;
+"59
+[; ;TAD_Matrix.c: 59:         rows = 1;
 [e = _rows -> -> 1 `i `uc ]
-"57
-[; ;TAD_Matrix.c: 57:     } else if (PORTBbits.RB2 == 0) {
+"60
+[; ;TAD_Matrix.c: 60:     } else if (PORTBbits.RB2 == 0) {
 }
 [e $U 308  ]
 [e :U 307 ]
 [e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 309  ]
 {
-"58
-[; ;TAD_Matrix.c: 58:         rows = 2;
+"61
+[; ;TAD_Matrix.c: 61:         rows = 2;
 [e = _rows -> -> 2 `i `uc ]
-"59
-[; ;TAD_Matrix.c: 59:     } else if (PORTBbits.RB3 == 0) {
+"62
+[; ;TAD_Matrix.c: 62:     } else if (PORTBbits.RB3 == 0) {
 }
 [e $U 310  ]
 [e :U 309 ]
 [e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 311  ]
 {
-"60
-[; ;TAD_Matrix.c: 60:         rows = 3;
+"63
+[; ;TAD_Matrix.c: 63:         rows = 3;
 [e = _rows -> -> 3 `i `uc ]
-"61
-[; ;TAD_Matrix.c: 61:     }
+"64
+[; ;TAD_Matrix.c: 64:     }
 }
 [e :U 311 ]
 [e :U 310 ]
 [e :U 308 ]
 [e :U 306 ]
-"62
-[; ;TAD_Matrix.c: 62:     lista = teclas[columns][rows];
-[e = _lista *U + &U *U + &U _teclas * -> _columns `ux -> * -> # *U &U *U &U _teclas `ui -> -> 4 `i `ui `ux * -> _rows `ux -> -> # *U &U *U + &U _teclas * -> _columns `ux -> * -> # *U &U *U &U _teclas `ui -> -> 4 `i `ui `ux `ui `ux ]
-"63
-[; ;TAD_Matrix.c: 63:     idx = 0;
-[e = _idx -> -> 0 `i `uc ]
-"64
-[; ;TAD_Matrix.c: 64:     key = lista[idx];
-[e = _key *U + _lista * -> _idx `ux -> -> # *U _lista `ui `ux ]
 "65
-[; ;TAD_Matrix.c: 65: }
+[; ;TAD_Matrix.c: 65:     lista = teclas[columns][rows];
+[e = _lista *U + &U *U + &U _teclas * -> _columns `ux -> * -> # *U &U *U &U _teclas `ui -> -> 4 `i `ui `ux * -> _rows `ux -> -> # *U &U *U + &U _teclas * -> _columns `ux -> * -> # *U &U *U &U _teclas `ui -> -> 4 `i `ui `ux `ui `ux ]
+"66
+[; ;TAD_Matrix.c: 66:     idx = 0;
+[e = _idx -> -> 0 `i `uc ]
+"67
+[; ;TAD_Matrix.c: 67:     key = lista[idx];
+[e = _key *U + _lista * -> _idx `ux -> -> # *U _lista `ui `ux ]
+"68
+[; ;TAD_Matrix.c: 68: }
 [e :UE 304 ]
 }
-"67
-[; ;TAD_Matrix.c: 67: void nextChar (void) {
+"70
+[; ;TAD_Matrix.c: 70: void nextChar (void) {
 [v _nextChar `(v ~T0 @X0 1 ef ]
 {
 [e :U _nextChar ]
 [f ]
-"68
-[; ;TAD_Matrix.c: 68:     if (lista == 0) {
+"71
+[; ;TAD_Matrix.c: 71:     if (lista == 0) {
 [e $ ! == _lista -> -> 0 `i `*Cuc 313  ]
 {
-"69
-[; ;TAD_Matrix.c: 69:         return;
+"72
+[; ;TAD_Matrix.c: 72:         return;
 [e $UE 312  ]
-"70
-[; ;TAD_Matrix.c: 70:     }
+"73
+[; ;TAD_Matrix.c: 73:     }
 }
 [e :U 313 ]
-"71
-[; ;TAD_Matrix.c: 71:     idx++;
+"74
+[; ;TAD_Matrix.c: 74:     idx++;
 [e ++ _idx -> -> 1 `i `uc ]
-"72
-[; ;TAD_Matrix.c: 72:     if (lista[idx] == '\0') {
+"75
+[; ;TAD_Matrix.c: 75:     if (lista[idx] == '\0') {
 [e $ ! == -> *U + _lista * -> _idx `ux -> -> # *U _lista `ui `ux `ui -> 0 `ui 314  ]
 {
-"73
-[; ;TAD_Matrix.c: 73:         idx = 0;
+"76
+[; ;TAD_Matrix.c: 76:         idx = 0;
 [e = _idx -> -> 0 `i `uc ]
-"74
-[; ;TAD_Matrix.c: 74:     }
+"77
+[; ;TAD_Matrix.c: 77:     }
 }
 [e :U 314 ]
-"75
-[; ;TAD_Matrix.c: 75:     key = lista[idx];
+"78
+[; ;TAD_Matrix.c: 78:     key = lista[idx];
 [e = _key *U + _lista * -> _idx `ux -> -> # *U _lista `ui `ux ]
-"76
-[; ;TAD_Matrix.c: 76: }
+"79
+[; ;TAD_Matrix.c: 79: }
 [e :UE 312 ]
 }
-"78
-[; ;TAD_Matrix.c: 78: unsigned char passwordSet (void) {
+"81
+[; ;TAD_Matrix.c: 81: unsigned char passwordSet (void) {
 [v _passwordSet `(uc ~T0 @X0 1 ef ]
 {
 [e :U _passwordSet ]
 [f ]
-"79
-[; ;TAD_Matrix.c: 79:     unsigned char aux = flag;
+"82
+[; ;TAD_Matrix.c: 82:     unsigned char aux = flag;
 [v _aux `uc ~T0 @X0 1 a ]
 [e = _aux _flag ]
-"80
-[; ;TAD_Matrix.c: 80:     flag = 0;
+"83
+[; ;TAD_Matrix.c: 83:     flag = 0;
 [e = _flag -> -> 0 `i `uc ]
-"81
-[; ;TAD_Matrix.c: 81:     return aux;
+"84
+[; ;TAD_Matrix.c: 84:     return aux;
 [e ) _aux ]
 [e $UE 315  ]
-"82
-[; ;TAD_Matrix.c: 82: }
+"85
+[; ;TAD_Matrix.c: 85: }
 [e :UE 315 ]
 }
-"84
-[; ;TAD_Matrix.c: 84: char* getPassword (void) {
+"87
+[; ;TAD_Matrix.c: 87: char* getPassword (void) {
 [v _getPassword `(*uc ~T0 @X0 1 ef ]
 {
 [e :U _getPassword ]
 [f ]
-"85
-[; ;TAD_Matrix.c: 85:     return password;
+"88
+[; ;TAD_Matrix.c: 88:     return password;
 [e ) &U _password ]
 [e $UE 316  ]
-"86
-[; ;TAD_Matrix.c: 86: }
+"89
+[; ;TAD_Matrix.c: 89: }
 [e :UE 316 ]
 }
-"88
-[; ;TAD_Matrix.c: 88: void setMatrix (unsigned char st) {
+"91
+[; ;TAD_Matrix.c: 91: void setMatrix (unsigned char st) {
 [v _setMatrix `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _setMatrix ]
 [v _st `uc ~T0 @X0 1 r1 ]
 [f ]
-"89
-[; ;TAD_Matrix.c: 89:     start = st;
+"92
+[; ;TAD_Matrix.c: 92:     start = st;
 [e = _start _st ]
-"90
-[; ;TAD_Matrix.c: 90: }
+"93
+[; ;TAD_Matrix.c: 93: }
 [e :UE 317 ]
 }
-"92
-[; ;TAD_Matrix.c: 92: void motorMatrix (void) {
+"95
+[; ;TAD_Matrix.c: 95: void motorMatrix (void) {
 [v _motorMatrix `(v ~T0 @X0 1 ef ]
 {
 [e :U _motorMatrix ]
 [f ]
-"93
-[; ;TAD_Matrix.c: 93:     static char state = 0;
+"96
+[; ;TAD_Matrix.c: 96:     static char state = 0;
 [v F2755 `uc ~T0 @X0 1 s state ]
 [i F2755
 -> -> 0 `i `uc
 ]
-"95
-[; ;TAD_Matrix.c: 95:     if (start == 0) {
+"98
+[; ;TAD_Matrix.c: 98:     if (start == 0) {
 [e $ ! == -> _start `i -> 0 `i 319  ]
 {
-"96
-[; ;TAD_Matrix.c: 96:         return;
+"99
+[; ;TAD_Matrix.c: 99:         return;
 [e $UE 318  ]
-"97
-[; ;TAD_Matrix.c: 97:     }
+"100
+[; ;TAD_Matrix.c: 100:     }
 }
 [e :U 319 ]
-"99
-[; ;TAD_Matrix.c: 99:     if (editing == 1 && !keyPressed() && (TI_GetTics(timer1s) >= 500)) {
+"102
+[; ;TAD_Matrix.c: 102:     if (editing == 1 && !keyPressed() && (TI_GetTics(timer1s) >= 500)) {
 [e $ ! && && == -> _editing `i -> 1 `i ! != -> ( _keyPressed ..  `i -> 0 `i >= ( _TI_GetTics (1 _timer1s -> -> -> 500 `i `l `ul 320  ]
 {
-"100
-[; ;TAD_Matrix.c: 100:         if (count < 7) {
+"103
+[; ;TAD_Matrix.c: 103:         if (count < 7) {
 [e $ ! < -> _count `i -> 7 `i 321  ]
 {
-"101
-[; ;TAD_Matrix.c: 101:             password[count] = key;
-[e = *U + &U _password * -> _count `ux -> -> # *U &U _password `ui `ux _key ]
-"102
-[; ;TAD_Matrix.c: 102:             SIO_SendChar(password[count]);
-[e ( _SIO_SendChar (1 *U + &U _password * -> _count `ux -> -> # *U &U _password `ui `ux ]
-"103
-[; ;TAD_Matrix.c: 103:             count++;
-[e ++ _count -> -> 1 `i `uc ]
 "104
-[; ;TAD_Matrix.c: 104:         }
+[; ;TAD_Matrix.c: 104:             password[count] = key;
+[e = *U + &U _password * -> _count `ux -> -> # *U &U _password `ui `ux _key ]
+"105
+[; ;TAD_Matrix.c: 105:             SIO_SendChar(password[count]);
+[e ( _SIO_SendChar (1 *U + &U _password * -> _count `ux -> -> # *U &U _password `ui `ux ]
+"106
+[; ;TAD_Matrix.c: 106:             count++;
+[e ++ _count -> -> 1 `i `uc ]
+"107
+[; ;TAD_Matrix.c: 107:         }
 }
 [e :U 321 ]
-"106
-[; ;TAD_Matrix.c: 106:         if (count == 7) {
+"109
+[; ;TAD_Matrix.c: 109:         if (count == 7) {
 [e $ ! == -> _count `i -> 7 `i 322  ]
 {
-"107
-[; ;TAD_Matrix.c: 107:             password[7] = '\0';
-[e = *U + &U _password * -> -> -> 7 `i `ui `ux -> -> # *U &U _password `ui `ux -> -> 0 `ui `uc ]
-"108
-[; ;TAD_Matrix.c: 108:             flag = 1;
-[e = _flag -> -> 1 `i `uc ]
-"109
-[; ;TAD_Matrix.c: 109:             count = 0;
-[e = _count -> -> 0 `i `uc ]
 "110
-[; ;TAD_Matrix.c: 110:         }
+[; ;TAD_Matrix.c: 110:             password[7] = '\0';
+[e = *U + &U _password * -> -> -> 7 `i `ui `ux -> -> # *U &U _password `ui `ux -> -> 0 `ui `uc ]
+"111
+[; ;TAD_Matrix.c: 111:             flag = 1;
+[e = _flag -> -> 1 `i `uc ]
+"112
+[; ;TAD_Matrix.c: 112:             count = 0;
+[e = _count -> -> 0 `i `uc ]
+"113
+[; ;TAD_Matrix.c: 113:         }
 }
 [e :U 322 ]
-"111
-[; ;TAD_Matrix.c: 111:         editing = 0;
+"114
+[; ;TAD_Matrix.c: 114:         editing = 0;
 [e = _editing -> -> 0 `i `uc ]
-"112
-[; ;TAD_Matrix.c: 112:     }
+"115
+[; ;TAD_Matrix.c: 115:     }
 }
 [e :U 320 ]
-"114
-[; ;TAD_Matrix.c: 114:     switch (state) {
+"117
+[; ;TAD_Matrix.c: 117:     switch (state) {
 [e $U 324  ]
 {
-"115
-[; ;TAD_Matrix.c: 115:         case 0:
+"118
+[; ;TAD_Matrix.c: 118:         case 0:
 [e :U 325 ]
-"116
-[; ;TAD_Matrix.c: 116:             if (!keyPressed()) {
+"119
+[; ;TAD_Matrix.c: 119:             if (!keyPressed()) {
 [e $ ! ! != -> ( _keyPressed ..  `i -> 0 `i 326  ]
 {
-"117
-[; ;TAD_Matrix.c: 117:                 columns = 0;
-[e = _columns -> -> 0 `i `uc ]
-"118
-[; ;TAD_Matrix.c: 118:                 LATDbits.LATD5 = 0;
-[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
-"119
-[; ;TAD_Matrix.c: 119:                 LATDbits.LATD6 = 1;
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "120
-[; ;TAD_Matrix.c: 120:                 LATDbits.LATD7 = 1;
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+[; ;TAD_Matrix.c: 120:                 columns = 0;
+[e = _columns -> -> 0 `i `uc ]
 "121
-[; ;TAD_Matrix.c: 121:                 state = 1;
-[e = F2755 -> -> 1 `i `uc ]
+[; ;TAD_Matrix.c: 121:                 LATDbits.LATD5 = 0;
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 "122
-[; ;TAD_Matrix.c: 122:             } else {
+[; ;TAD_Matrix.c: 122:                 LATDbits.LATD6 = 1;
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+"123
+[; ;TAD_Matrix.c: 123:                 LATDbits.LATD7 = 1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+"124
+[; ;TAD_Matrix.c: 124:                 state = 1;
+[e = F2755 -> -> 1 `i `uc ]
+"125
+[; ;TAD_Matrix.c: 125:             } else {
 }
 [e $U 327  ]
 [e :U 326 ]
 {
-"123
-[; ;TAD_Matrix.c: 123:                 TI_ResetTics(timerHandle);
+"126
+[; ;TAD_Matrix.c: 126:                 TI_ResetTics(timerHandle);
 [e ( _TI_ResetTics (1 _timerHandle ]
-"124
-[; ;TAD_Matrix.c: 124:                 state = 3;
+"127
+[; ;TAD_Matrix.c: 127:                 state = 3;
 [e = F2755 -> -> 3 `i `uc ]
-"125
-[; ;TAD_Matrix.c: 125:             }
+"128
+[; ;TAD_Matrix.c: 128:             }
 }
 [e :U 327 ]
-"126
-[; ;TAD_Matrix.c: 126:             break;
+"129
+[; ;TAD_Matrix.c: 129:             break;
 [e $U 323  ]
-"127
-[; ;TAD_Matrix.c: 127:         case 1:
+"130
+[; ;TAD_Matrix.c: 130:         case 1:
 [e :U 328 ]
-"128
-[; ;TAD_Matrix.c: 128:             if (!keyPressed()) {
+"131
+[; ;TAD_Matrix.c: 131:             if (!keyPressed()) {
 [e $ ! ! != -> ( _keyPressed ..  `i -> 0 `i 329  ]
 {
-"129
-[; ;TAD_Matrix.c: 129:                 columns = 1;
-[e = _columns -> -> 1 `i `uc ]
-"130
-[; ;TAD_Matrix.c: 130:                 LATDbits.LATD5 = 1;
-[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
-"131
-[; ;TAD_Matrix.c: 131:                 LATDbits.LATD6 = 0;
-[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
 "132
-[; ;TAD_Matrix.c: 132:                 LATDbits.LATD7 = 1;
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+[; ;TAD_Matrix.c: 132:                 columns = 1;
+[e = _columns -> -> 1 `i `uc ]
 "133
-[; ;TAD_Matrix.c: 133:                 state = 2;
-[e = F2755 -> -> 2 `i `uc ]
+[; ;TAD_Matrix.c: 133:                 LATDbits.LATD5 = 1;
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 "134
-[; ;TAD_Matrix.c: 134:             } else {
+[; ;TAD_Matrix.c: 134:                 LATDbits.LATD6 = 0;
+[e = . . _LATDbits 0 6 -> -> 0 `i `uc ]
+"135
+[; ;TAD_Matrix.c: 135:                 LATDbits.LATD7 = 1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+"136
+[; ;TAD_Matrix.c: 136:                 state = 2;
+[e = F2755 -> -> 2 `i `uc ]
+"137
+[; ;TAD_Matrix.c: 137:             } else {
 }
 [e $U 330  ]
 [e :U 329 ]
 {
-"135
-[; ;TAD_Matrix.c: 135:                 TI_ResetTics(timerHandle);
+"138
+[; ;TAD_Matrix.c: 138:                 TI_ResetTics(timerHandle);
 [e ( _TI_ResetTics (1 _timerHandle ]
-"136
-[; ;TAD_Matrix.c: 136:                 state = 3;
+"139
+[; ;TAD_Matrix.c: 139:                 state = 3;
 [e = F2755 -> -> 3 `i `uc ]
-"137
-[; ;TAD_Matrix.c: 137:             }
+"140
+[; ;TAD_Matrix.c: 140:             }
 }
 [e :U 330 ]
-"138
-[; ;TAD_Matrix.c: 138:             break;
+"141
+[; ;TAD_Matrix.c: 141:             break;
 [e $U 323  ]
-"139
-[; ;TAD_Matrix.c: 139:         case 2:
+"142
+[; ;TAD_Matrix.c: 142:         case 2:
 [e :U 331 ]
-"140
-[; ;TAD_Matrix.c: 140:             if (!keyPressed()) {
+"143
+[; ;TAD_Matrix.c: 143:             if (!keyPressed()) {
 [e $ ! ! != -> ( _keyPressed ..  `i -> 0 `i 332  ]
 {
-"141
-[; ;TAD_Matrix.c: 141:                 columns = 2;
-[e = _columns -> -> 2 `i `uc ]
-"142
-[; ;TAD_Matrix.c: 142:                 LATDbits.LATD5 = 1;
-[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
-"143
-[; ;TAD_Matrix.c: 143:                 LATDbits.LATD6 = 1;
-[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
 "144
-[; ;TAD_Matrix.c: 144:                 LATDbits.LATD7 = 0;
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;TAD_Matrix.c: 144:                 columns = 2;
+[e = _columns -> -> 2 `i `uc ]
 "145
-[; ;TAD_Matrix.c: 145:                 state = 0;
-[e = F2755 -> -> 0 `i `uc ]
+[; ;TAD_Matrix.c: 145:                 LATDbits.LATD5 = 1;
+[e = . . _LATDbits 0 5 -> -> 1 `i `uc ]
 "146
-[; ;TAD_Matrix.c: 146:             } else {
+[; ;TAD_Matrix.c: 146:                 LATDbits.LATD6 = 1;
+[e = . . _LATDbits 0 6 -> -> 1 `i `uc ]
+"147
+[; ;TAD_Matrix.c: 147:                 LATDbits.LATD7 = 0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"148
+[; ;TAD_Matrix.c: 148:                 state = 0;
+[e = F2755 -> -> 0 `i `uc ]
+"149
+[; ;TAD_Matrix.c: 149:             } else {
 }
 [e $U 333  ]
 [e :U 332 ]
 {
-"147
-[; ;TAD_Matrix.c: 147:                 TI_ResetTics(timerHandle);
+"150
+[; ;TAD_Matrix.c: 150:                 TI_ResetTics(timerHandle);
 [e ( _TI_ResetTics (1 _timerHandle ]
-"148
-[; ;TAD_Matrix.c: 148:                 state = 3;
+"151
+[; ;TAD_Matrix.c: 151:                 state = 3;
 [e = F2755 -> -> 3 `i `uc ]
-"149
-[; ;TAD_Matrix.c: 149:             }
+"152
+[; ;TAD_Matrix.c: 152:             }
 }
 [e :U 333 ]
-"150
-[; ;TAD_Matrix.c: 150:             break;
+"153
+[; ;TAD_Matrix.c: 153:             break;
 [e $U 323  ]
-"151
-[; ;TAD_Matrix.c: 151:         case 3:
+"154
+[; ;TAD_Matrix.c: 154:         case 3:
 [e :U 334 ]
-"152
-[; ;TAD_Matrix.c: 152:             if (!keyPressed()) {
+"155
+[; ;TAD_Matrix.c: 155:             if (!keyPressed()) {
 [e $ ! ! != -> ( _keyPressed ..  `i -> 0 `i 335  ]
 {
-"153
-[; ;TAD_Matrix.c: 153:                 state = 0;
+"156
+[; ;TAD_Matrix.c: 156:                 state = 0;
 [e = F2755 -> -> 0 `i `uc ]
-"154
-[; ;TAD_Matrix.c: 154:             } else if (TI_GetTics(timerHandle) > 8) {
+"157
+[; ;TAD_Matrix.c: 157:             } else if(TI_GetTics(timerHandle) > 8) {
 }
 [e $U 336  ]
 [e :U 335 ]
 [e $ ! > ( _TI_GetTics (1 _timerHandle -> -> -> 8 `i `l `ul 337  ]
 {
-"155
-[; ;TAD_Matrix.c: 155:                 if (PORTBbits.RB0 == 0) {
+"159
+[; ;TAD_Matrix.c: 159:                 if (PORTBbits.RB0 == 0) {
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 338  ]
 {
-"156
-[; ;TAD_Matrix.c: 156:                     newRow = 0;
+"160
+[; ;TAD_Matrix.c: 160:                     newRow = 0;
 [e = _newRow -> -> 0 `i `uc ]
-"157
-[; ;TAD_Matrix.c: 157:                 } else if (PORTBbits.RB1 == 0) {
+"161
+[; ;TAD_Matrix.c: 161:                 } else if (PORTBbits.RB1 == 0) {
 }
 [e $U 339  ]
 [e :U 338 ]
 [e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 340  ]
 {
-"158
-[; ;TAD_Matrix.c: 158:                     newRow = 1;
+"162
+[; ;TAD_Matrix.c: 162:                     newRow = 1;
 [e = _newRow -> -> 1 `i `uc ]
-"159
-[; ;TAD_Matrix.c: 159:                 } else if (PORTBbits.RB2 == 0) {
+"163
+[; ;TAD_Matrix.c: 163:                 } else if (PORTBbits.RB2 == 0) {
 }
 [e $U 341  ]
 [e :U 340 ]
 [e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 342  ]
 {
-"160
-[; ;TAD_Matrix.c: 160:                     newRow = 2;
+"164
+[; ;TAD_Matrix.c: 164:                     newRow = 2;
 [e = _newRow -> -> 2 `i `uc ]
-"161
-[; ;TAD_Matrix.c: 161:                 } else if (PORTBbits.RB3 == 0) {
+"165
+[; ;TAD_Matrix.c: 165:                 } else if (PORTBbits.RB3 == 0) {
 }
 [e $U 343  ]
 [e :U 342 ]
 [e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 344  ]
 {
-"162
-[; ;TAD_Matrix.c: 162:                     newRow = 3;
+"166
+[; ;TAD_Matrix.c: 166:                     newRow = 3;
 [e = _newRow -> -> 3 `i `uc ]
-"163
-[; ;TAD_Matrix.c: 163:                 }
+"167
+[; ;TAD_Matrix.c: 167:                 }
 }
 [e :U 344 ]
 [e :U 343 ]
 [e :U 341 ]
 [e :U 339 ]
-"164
-[; ;TAD_Matrix.c: 164:                 newColumn = columns;
+"168
+[; ;TAD_Matrix.c: 168:                 newColumn = columns;
 [e = _newColumn _columns ]
-"166
-[; ;TAD_Matrix.c: 166:                 if (newRow == 3 && ((newColumn == 0) || (newColumn == 2))) {
+"170
+[; ;TAD_Matrix.c: 170:                 if (newRow == 3 && ((newColumn == 0) || (newColumn == 2))) {
 [e $ ! && == -> _newRow `i -> 3 `i || == -> _newColumn `i -> 0 `i == -> _newColumn `i -> 2 `i 345  ]
 {
-"167
-[; ;TAD_Matrix.c: 167:                     state = 6;
+"171
+[; ;TAD_Matrix.c: 171:                     state = 6;
 [e = F2755 -> -> 6 `i `uc ]
-"168
-[; ;TAD_Matrix.c: 168:                     break;
+"172
+[; ;TAD_Matrix.c: 172:                     break;
 [e $U 323  ]
-"169
-[; ;TAD_Matrix.c: 169:                 }
+"173
+[; ;TAD_Matrix.c: 173:                 }
 }
 [e :U 345 ]
-"171
-[; ;TAD_Matrix.c: 171:                 TI_ResetTics(timer1s);
+"175
+[; ;TAD_Matrix.c: 175:                 TI_ResetTics(timer1s);
 [e ( _TI_ResetTics (1 _timer1s ]
-"173
-[; ;TAD_Matrix.c: 173:                 if (editing == 0) {
+"177
+[; ;TAD_Matrix.c: 177:                 if (editing == 0) {
 [e $ ! == -> _editing `i -> 0 `i 346  ]
 {
-"174
-[; ;TAD_Matrix.c: 174:                     state = 4;
+"178
+[; ;TAD_Matrix.c: 178:                     state = 4;
 [e = F2755 -> -> 4 `i `uc ]
-"175
-[; ;TAD_Matrix.c: 175:                 } else {
+"179
+[; ;TAD_Matrix.c: 179:                 } else {
 }
 [e $U 347  ]
 [e :U 346 ]
 {
-"176
-[; ;TAD_Matrix.c: 176:                     if (newColumn == lastColumn && newRow == lastRow) {
+"180
+[; ;TAD_Matrix.c: 180:                     if (newColumn == lastColumn && newRow == lastRow) {
 [e $ ! && == -> _newColumn `i -> _lastColumn `i == -> _newRow `i -> _lastRow `i 348  ]
 {
-"177
-[; ;TAD_Matrix.c: 177:                         nextChar();
+"181
+[; ;TAD_Matrix.c: 181:                         nextChar();
 [e ( _nextChar ..  ]
-"178
-[; ;TAD_Matrix.c: 178:                         state = 6;
+"182
+[; ;TAD_Matrix.c: 182:                         state = 6;
 [e = F2755 -> -> 6 `i `uc ]
-"179
-[; ;TAD_Matrix.c: 179:                     } else {
+"183
+[; ;TAD_Matrix.c: 183:                     } else {
 }
 [e $U 349  ]
 [e :U 348 ]
 {
-"180
-[; ;TAD_Matrix.c: 180:                         state = 5;
+"184
+[; ;TAD_Matrix.c: 184:                         state = 5;
 [e = F2755 -> -> 5 `i `uc ]
-"181
-[; ;TAD_Matrix.c: 181:                     }
+"185
+[; ;TAD_Matrix.c: 185:                     }
 }
 [e :U 349 ]
-"182
-[; ;TAD_Matrix.c: 182:                 }
+"186
+[; ;TAD_Matrix.c: 186:                 }
 }
 [e :U 347 ]
-"183
-[; ;TAD_Matrix.c: 183:             }
+"187
+[; ;TAD_Matrix.c: 187:             }
 }
 [e :U 337 ]
 [e :U 336 ]
-"184
-[; ;TAD_Matrix.c: 184:             break;
-[e $U 323  ]
-"185
-[; ;TAD_Matrix.c: 185:         case 4:
-[e :U 350 ]
-"186
-[; ;TAD_Matrix.c: 186:             lastRow = newRow;
-[e = _lastRow _newRow ]
-"187
-[; ;TAD_Matrix.c: 187:             lastColumn = newColumn;
-[e = _lastColumn _newColumn ]
 "188
-[; ;TAD_Matrix.c: 188:             rows = newRow;
-[e = _rows _newRow ]
-"189
-[; ;TAD_Matrix.c: 189:             columns = newColumn;
-[e = _columns _newColumn ]
-"190
-[; ;TAD_Matrix.c: 190:             getKey();
-[e ( _getKey ..  ]
-"191
-[; ;TAD_Matrix.c: 191:             editing = 1;
-[e = _editing -> -> 1 `i `uc ]
-"192
-[; ;TAD_Matrix.c: 192:             state = 6;
-[e = F2755 -> -> 6 `i `uc ]
-"193
-[; ;TAD_Matrix.c: 193:             break;
+[; ;TAD_Matrix.c: 188:             break;
 [e $U 323  ]
+"189
+[; ;TAD_Matrix.c: 189:         case 4:
+[e :U 350 ]
+"190
+[; ;TAD_Matrix.c: 190:             lastRow = newRow;
+[e = _lastRow _newRow ]
+"191
+[; ;TAD_Matrix.c: 191:             lastColumn = newColumn;
+[e = _lastColumn _newColumn ]
+"192
+[; ;TAD_Matrix.c: 192:             rows = newRow;
+[e = _rows _newRow ]
+"193
+[; ;TAD_Matrix.c: 193:             columns = newColumn;
+[e = _columns _newColumn ]
 "194
-[; ;TAD_Matrix.c: 194:         case 5:
-[e :U 351 ]
+[; ;TAD_Matrix.c: 194:             getKey();
+[e ( _getKey ..  ]
 "195
-[; ;TAD_Matrix.c: 195:             if (count < 7) {
+[; ;TAD_Matrix.c: 195:             editing = 1;
+[e = _editing -> -> 1 `i `uc ]
+"196
+[; ;TAD_Matrix.c: 196:             state = 6;
+[e = F2755 -> -> 6 `i `uc ]
+"197
+[; ;TAD_Matrix.c: 197:             break;
+[e $U 323  ]
+"198
+[; ;TAD_Matrix.c: 198:         case 5:
+[e :U 351 ]
+"199
+[; ;TAD_Matrix.c: 199:             if (count < 7) {
 [e $ ! < -> _count `i -> 7 `i 352  ]
 {
-"196
-[; ;TAD_Matrix.c: 196:                 password[count] = key;
+"200
+[; ;TAD_Matrix.c: 200:                 password[count] = key;
 [e = *U + &U _password * -> _count `ux -> -> # *U &U _password `ui `ux _key ]
-"197
-[; ;TAD_Matrix.c: 197:                 SIO_SendChar(password[count]);
+"201
+[; ;TAD_Matrix.c: 201:                 SIO_SendChar(password[count]);
 [e ( _SIO_SendChar (1 *U + &U _password * -> _count `ux -> -> # *U &U _password `ui `ux ]
-"198
-[; ;TAD_Matrix.c: 198:                 count++;
+"202
+[; ;TAD_Matrix.c: 202:                 count++;
 [e ++ _count -> -> 1 `i `uc ]
-"199
-[; ;TAD_Matrix.c: 199:             }
+"203
+[; ;TAD_Matrix.c: 203:             }
 }
 [e :U 352 ]
-"200
-[; ;TAD_Matrix.c: 200:             if (count == 7) {
+"204
+[; ;TAD_Matrix.c: 204:             if (count == 7) {
 [e $ ! == -> _count `i -> 7 `i 353  ]
 {
-"201
-[; ;TAD_Matrix.c: 201:                 password[7] = '\0';
+"205
+[; ;TAD_Matrix.c: 205:                 password[7] = '\0';
 [e = *U + &U _password * -> -> -> 7 `i `ui `ux -> -> # *U &U _password `ui `ux -> -> 0 `ui `uc ]
-"202
-[; ;TAD_Matrix.c: 202:                 flag = 1;
+"206
+[; ;TAD_Matrix.c: 206:                 flag = 1;
 [e = _flag -> -> 1 `i `uc ]
-"203
-[; ;TAD_Matrix.c: 203:                 count = 0;
+"207
+[; ;TAD_Matrix.c: 207:                 count = 0;
 [e = _count -> -> 0 `i `uc ]
-"204
-[; ;TAD_Matrix.c: 204:             }
+"208
+[; ;TAD_Matrix.c: 208:             }
 }
 [e :U 353 ]
-"206
-[; ;TAD_Matrix.c: 206:             lastRow = newRow;
+"210
+[; ;TAD_Matrix.c: 210:             lastRow = newRow;
 [e = _lastRow _newRow ]
-"207
-[; ;TAD_Matrix.c: 207:             lastColumn = newColumn;
-[e = _lastColumn _newColumn ]
-"208
-[; ;TAD_Matrix.c: 208:             rows = newRow;
-[e = _rows _newRow ]
-"209
-[; ;TAD_Matrix.c: 209:             columns = newColumn;
-[e = _columns _newColumn ]
 "211
-[; ;TAD_Matrix.c: 211:             getKey();
-[e ( _getKey ..  ]
+[; ;TAD_Matrix.c: 211:             lastColumn = newColumn;
+[e = _lastColumn _newColumn ]
+"212
+[; ;TAD_Matrix.c: 212:             rows = newRow;
+[e = _rows _newRow ]
 "213
-[; ;TAD_Matrix.c: 213:             editing = 1;
-[e = _editing -> -> 1 `i `uc ]
-"214
-[; ;TAD_Matrix.c: 214:             state = 6;
-[e = F2755 -> -> 6 `i `uc ]
+[; ;TAD_Matrix.c: 213:             columns = newColumn;
+[e = _columns _newColumn ]
 "215
-[; ;TAD_Matrix.c: 215:             break;
-[e $U 323  ]
-"216
-[; ;TAD_Matrix.c: 216:         case 6:
-[e :U 354 ]
+[; ;TAD_Matrix.c: 215:             getKey();
+[e ( _getKey ..  ]
 "217
-[; ;TAD_Matrix.c: 217:             if (!keyPressed()) {
+[; ;TAD_Matrix.c: 217:             editing = 1;
+[e = _editing -> -> 1 `i `uc ]
+"218
+[; ;TAD_Matrix.c: 218:             state = 6;
+[e = F2755 -> -> 6 `i `uc ]
+"219
+[; ;TAD_Matrix.c: 219:             break;
+[e $U 323  ]
+"220
+[; ;TAD_Matrix.c: 220:         case 6:
+[e :U 354 ]
+"221
+[; ;TAD_Matrix.c: 221:             if (!keyPressed()) {
 [e $ ! ! != -> ( _keyPressed ..  `i -> 0 `i 355  ]
 {
-"218
-[; ;TAD_Matrix.c: 218:                 state = 0;
+"222
+[; ;TAD_Matrix.c: 222:                 state = 0;
 [e = F2755 -> -> 0 `i `uc ]
-"219
-[; ;TAD_Matrix.c: 219:             }
+"223
+[; ;TAD_Matrix.c: 223:             }
 }
 [e :U 355 ]
-"220
-[; ;TAD_Matrix.c: 220:             break;
+"224
+[; ;TAD_Matrix.c: 224:             break;
 [e $U 323  ]
-"221
-[; ;TAD_Matrix.c: 221:     }
+"225
+[; ;TAD_Matrix.c: 225:     }
 }
 [e $U 323  ]
 [e :U 324 ]
@@ -1243,8 +1249,8 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 6 `i 354
  323 ]
 [e :U 323 ]
-"222
-[; ;TAD_Matrix.c: 222: }
+"226
+[; ;TAD_Matrix.c: 226: }
 [e :UE 318 ]
 }
 [a 11C 87 88 89 90 57 0 ]

@@ -38,6 +38,9 @@ static unsigned char count = 0;
 static unsigned char flag = 0;
 
 void Matrix_Init (void) {
+    // Configure all analog-capable pins as digital I/O (required for RB0–RB3 on PIC18F4520)
+    ADCON1 = 0x0F;
+
     TI_NewTimer(&timerHandle);
     TI_NewTimer(&timer1s);
     CONFIG_ROWS;

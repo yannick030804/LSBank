@@ -4793,7 +4793,7 @@ unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
 # 10 "TAD_Matrix.c" 2
 # 1 "./TAD_Matrix.h" 1
-# 20 "./TAD_Matrix.h"
+# 16 "./TAD_Matrix.h"
 void motorMatrix (void);
 
 void Matrix_Init (void);
@@ -4865,6 +4865,9 @@ static unsigned char count = 0;
 static unsigned char flag = 0;
 
 void Matrix_Init (void) {
+
+    ADCON1 = 0x0F;
+
     TI_NewTimer(&timerHandle);
     TI_NewTimer(&timer1s);
     TRISBbits.TRISB0 = TRISBbits.TRISB1 = TRISBbits.TRISB2 = TRISBbits.TRISB3 = 1;
@@ -4978,7 +4981,8 @@ void motorMatrix (void) {
         case 3:
             if (!keyPressed()) {
                 state = 0;
-            } else if (TI_GetTics(timerHandle) > 8) {
+            } else if(TI_GetTics(timerHandle) > 8) {
+
                 if (PORTBbits.RB0 == 0) {
                     newRow = 0;
                 } else if (PORTBbits.RB1 == 0) {

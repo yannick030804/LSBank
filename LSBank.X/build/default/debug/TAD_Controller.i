@@ -4886,7 +4886,7 @@ unsigned char getButton (void);
 void motorButton (void);
 # 17 "TAD_Controller.c" 2
 # 1 "./TAD_Matrix.h" 1
-# 20 "./TAD_Matrix.h"
+# 16 "./TAD_Matrix.h"
 void motorMatrix (void);
 
 void Matrix_Init (void);
@@ -4921,7 +4921,7 @@ void motorController (void) {
 
     switch (state) {
         case 0:
-            uid_ptr = "> LSBank - New Day!\n";
+            uid_ptr = "> LSBank - New Day!\r\n";
             i = 0;
             state = 1;
             setOK(1);
@@ -4941,7 +4941,7 @@ void motorController (void) {
         case 2:
             if (getHall() == 1) {
                 speaker_sound(1, 200);
-                uid_ptr = "> LSBank - Open exterior door\n";
+                uid_ptr = "> LSBank - Open exterior door\r\n";
                 i = 0;
                 state = 3;
             }
@@ -4960,7 +4960,7 @@ void motorController (void) {
             break;
         case 4:
             if (TI_GetTics(timerHandle) >= 1000) {
-                uid_ptr = "> LSBank - Close exterior door\n";
+                uid_ptr = "> LSBank - Close exterior door\r\n";
                 i = 0;
                 state = 5;
             }
@@ -5007,7 +5007,7 @@ void motorController (void) {
                 setIntensity(0);
                 setAlarm(1);
                 setOK(0);
-                uid_ptr = "> LSBank - Thief intercepted\n";
+                uid_ptr = "> LSBank - Thief intercepted\r\n";
                 i = 0;
                 state = 11;
             }
@@ -5023,11 +5023,12 @@ void motorController (void) {
                     setMatrix(0);
                     setStop(1);
                     setIntensity(0);
-                    uid_ptr = "> LSBank - Open interior door\n";
+                    uid_ptr = "> LSBank - Open interior door\r\n";
                     state = 15;
                 } else {
+                    SIO_SendChar('\r');
                     SIO_SendChar('\n');
-                    uid_ptr = "> LSBank - Permission denied\n";
+                    uid_ptr = "> LSBank - Permission denied\r\n";
                     state = 9;
                     i = 0;
                     tries++;
@@ -5050,7 +5051,7 @@ void motorController (void) {
                         setIntensity(0);
                         setAlarm(1);
                         setOK(0);
-                        uid_ptr = "> LSBank - Thief intercepted\n";
+                        uid_ptr = "> LSBank - Thief intercepted\r\n";
                         i = 0;
                         state = 11;
                     }
@@ -5139,7 +5140,7 @@ void motorController (void) {
             break;
         case 16:
             if (TI_GetTics(timerHandle) >= 1000) {
-                uid_ptr = "> LSBank - Close interior door\n";
+                uid_ptr = "> LSBank - Close interior door\r\n";
                 i = 0;
                 state = 17;
             }
@@ -5191,7 +5192,7 @@ void motorController (void) {
             break;
         case 21:
             if (yesIdx == 3 && yesBuf[0]=='Y' && yesBuf[1]=='e' && yesBuf[2]=='s') {
-                uid_ptr = "> LSBank - Open both doors\n";
+                uid_ptr = "> LSBank - Open both doors\r\n";
                 i = 0;
                 state = 23;
             }
@@ -5211,7 +5212,7 @@ void motorController (void) {
             setIntensity(0);
             setAlarm(1);
             setOK(0);
-            uid_ptr = "> LSBank - Thief intercepted\n";
+            uid_ptr = "> LSBank - Thief intercepted\r\n";
             i = 0;
             state = 11;
             break;
@@ -5230,7 +5231,7 @@ void motorController (void) {
         case 24:
             if (TI_GetTics(timerHandle) >= 1000) {
                 i = 0;
-                uid_ptr = "> LSBank - Close both doors\n";
+                uid_ptr = "> LSBank - Close both doors\r\n";
                 state = 25;
             }
             break;

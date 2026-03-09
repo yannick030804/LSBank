@@ -59,19 +59,19 @@
 [v _motorLEDs motorLEDs `(v  1 e 1 0 ]
 "40 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Matrix.c
 [v _Matrix_Init Matrix_Init `(v  1 e 1 0 ]
-"48
+"51
 [v _keyPressed keyPressed `(uc  1 e 1 0 ]
-"52
+"55
 [v _getKey getKey `(v  1 e 1 0 ]
-"67
+"70
 [v _nextChar nextChar `(v  1 e 1 0 ]
-"78
+"81
 [v _passwordSet passwordSet `(uc  1 e 1 0 ]
-"84
+"87
 [v _getPassword getPassword `(*.30uc  1 e 2 0 ]
-"88
+"91
 [v _setMatrix setMatrix `(v  1 e 1 0 ]
-"92
+"95
 [v _motorMatrix motorMatrix `(v  1 e 1 0 ]
 "12 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_SIO.c
 [v _SIO_Init SIO_Init `(v  1 e 1 0 ]
@@ -335,15 +335,17 @@
 ]
 [u S483 . 1 `S463 1 . 1 0 `S472 1 . 1 0 `S477 1 . 1 0 `S480 1 . 1 0 ]
 [v _BAUDCONbits BAUDCONbits `VES483  1 e 1 @4024 ]
+"4714
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "6181
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
 "6258
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
-[s S916 . 1 `uc 1 . 1 0 :7:0 
+[s S917 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6654
-[s S919 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S920 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -352,11 +354,11 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S928 . 1 `uc 1 . 1 0 :7:0 
+[s S929 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S931 . 1 `S916 1 . 1 0 `S919 1 . 1 0 `S928 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES931  1 e 1 @4081 ]
+[u S932 . 1 `S917 1 . 1 0 `S920 1 . 1 0 `S929 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES932  1 e 1 @4081 ]
 [s S24 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -385,7 +387,7 @@
 "8680
 [v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
 "12 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Button.c
-[v _timerHandle@TAD_Button$F1131 timerHandle `uc  1 s 1 timerHandle ]
+[v _timerHandle@TAD_Button$F1132 timerHandle `uc  1 s 1 timerHandle ]
 "13
 [v _isPressed isPressed `uc  1 s 1 isPressed ]
 "19 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Controller.c
@@ -393,13 +395,13 @@
 "20
 [v _tries tries `uc  1 s 1 tries ]
 "21
-[v _count@TAD_Controller$F1158 count `uc  1 s 1 count ]
+[v _count@TAD_Controller$F1159 count `uc  1 s 1 count ]
 "24
 [v _uid_ptr uid_ptr `*.32uc  1 s 2 uid_ptr ]
 "25
 [v _psswrd psswrd `[8]uc  1 s 8 psswrd ]
 "26
-[v _password@TAD_Controller$F1162 password `*.30uc  1 s 1 password ]
+[v _password@TAD_Controller$F1163 password `*.30uc  1 s 1 password ]
 "27
 [v _yes_aux yes_aux `[4]uc  1 s 4 yes_aux ]
 "28
@@ -407,7 +409,7 @@
 "29
 [v _yesIdx yesIdx `uc  1 s 1 yesIdx ]
 "31
-[v _timerHandle@TAD_Controller$F1166 timerHandle `uc  1 s 1 timerHandle ]
+[v _timerHandle@TAD_Controller$F1167 timerHandle `uc  1 s 1 timerHandle ]
 "11 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Hall.c
 [v _hallEvent hallEvent `uc  1 s 1 hallEvent ]
 "13 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_LEDS.c
@@ -429,7 +431,7 @@
 "19
 [v _lastColumn lastColumn `uc  1 s 1 lastColumn ]
 "21
-[v _timerHandle@TAD_Matrix$F1021 timerHandle `uc  1 s 1 timerHandle ]
+[v _timerHandle@TAD_Matrix$F1022 timerHandle `uc  1 s 1 timerHandle ]
 "22
 [v _timer1s timer1s `uc  1 s 1 timer1s ]
 "24
@@ -443,13 +445,13 @@
 "28
 [v _teclas teclas `C[3][4]*.32Cuc  1 s 24 teclas ]
 "34
-[v _start@TAD_Matrix$F1041 start `uc  1 s 1 start ]
+[v _start@TAD_Matrix$F1042 start `uc  1 s 1 start ]
 "36
 [v _password password `[8]uc  1 s 8 password ]
 "37
-[v _count@TAD_Matrix$F1043 count `uc  1 s 1 count ]
+[v _count@TAD_Matrix$F1044 count `uc  1 s 1 count ]
 "38
-[v _flag@TAD_Matrix$F1044 flag `uc  1 s 1 flag ]
+[v _flag@TAD_Matrix$F1045 flag `uc  1 s 1 flag ]
 "12 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Speaker.c
 [v _timerHandle timerHandle `uc  1 s 1 timerHandle ]
 "13
@@ -492,27 +494,27 @@
 [v processSpeakerSound@lastToggleTics lastToggleTics `ul  1 s 4 lastToggleTics ]
 "80
 } 0
-"92 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Matrix.c
+"95 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Matrix.c
 [v _motorMatrix motorMatrix `(v  1 e 1 0 ]
 {
-"93
+"96
 [v motorMatrix@state state `uc  1 s 1 state ]
-"222
+"226
 } 0
-"67
+"70
 [v _nextChar nextChar `(v  1 e 1 0 ]
 {
-"76
+"79
 } 0
-"48
+"51
 [v _keyPressed keyPressed `(uc  1 e 1 0 ]
 {
-"50
+"53
 } 0
-"52
+"55
 [v _getKey getKey `(v  1 e 1 0 ]
 {
-"65
+"68
 } 0
 "38 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_LEDS.c
 [v _motorLEDs motorLEDs `(v  1 e 1 0 ]
@@ -535,13 +537,13 @@
 "37 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Controller.c
 [v _motorController motorController `(v  1 e 1 0 ]
 {
-"297
-[v motorController@c_1196 c `uc  1 a 1 16 ]
-"216
+"298
+[v motorController@c_1197 c `uc  1 a 1 16 ]
+"217
 [v motorController@c c `uc  1 a 1 15 ]
 "38
 [v motorController@state state `uc  1 s 1 state ]
-"369
+"370
 } 0
 "46 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Speaker.c
 [v _speaker_sound speaker_sound `(v  1 e 1 0 ]
@@ -576,13 +578,13 @@
 [v setOK@aux aux `uc  1 p 1 1 ]
 "32
 } 0
-"88 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Matrix.c
+"91 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Matrix.c
 [v _setMatrix setMatrix `(v  1 e 1 0 ]
 {
 [v setMatrix@st st `uc  1 p 1 wreg ]
 [v setMatrix@st st `uc  1 p 1 wreg ]
 [v setMatrix@st st `uc  1 p 1 0 ]
-"90
+"93
 } 0
 "26 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_LEDS.c
 [v _setIntensity setIntensity `(v  1 e 1 0 ]
@@ -600,17 +602,17 @@
 [v setAlarm@aux aux `uc  1 p 1 1 ]
 "36
 } 0
-"78 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Matrix.c
+"81 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Matrix.c
 [v _passwordSet passwordSet `(uc  1 e 1 0 ]
 {
-"79
-[v passwordSet@aux aux `uc  1 a 1 0 ]
 "82
+[v passwordSet@aux aux `uc  1 a 1 0 ]
+"85
 } 0
-"84
+"87
 [v _getPassword getPassword `(*.30uc  1 e 2 0 ]
 {
-"86
+"89
 } 0
 "17 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Hall.c
 [v _getHall getHall `(uc  1 e 1 0 ]
@@ -695,7 +697,7 @@
 "40 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_Matrix.c
 [v _Matrix_Init Matrix_Init `(v  1 e 1 0 ]
 {
-"46
+"49
 } 0
 "17 C:\Users\danir\yannih\LSBank\LSBank.X\TAD_LEDS.c
 [v _LED_Init LED_Init `(v  1 e 1 0 ]

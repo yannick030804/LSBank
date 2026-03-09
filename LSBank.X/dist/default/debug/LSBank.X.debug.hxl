@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_3.o
+ C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_3.o
  -Odist/default/debug\LSBank.X.debug.hex
  -logfile=dist/default/debug\LSBank.X.debug.hxl
  -format=INHX032
@@ -10,21 +10,21 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_3.o)
-  8h - 172Fh		(C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_3.o)
-  1E5Eh - 1FFFh		(C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_3.o)
-  200000h - 200007h		(C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_3.o)
-  300000h - 30000Dh		(C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_3.o)
+  8h - 1739h		(C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_3.o)
+  1E54h - 1FFEh		(C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_3.o)
+  200000h - 200007h		(C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
-  1730h - 1E5Dh
-  2000h - 1FFFFFh
+  173Ah - 1E53h
+  1FFFh - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\danir\AppData\Local\Temp\xcAst3o.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\danir\AppData\Local\Temp\xcAs1b9s.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -399,8 +399,9 @@
 00001700 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001710 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001720 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001730 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
-00001E50 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
+00001E50 | -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001E60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001E70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001E80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -426,7 +427,7 @@
 00001FC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001FD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001FE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001FF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------

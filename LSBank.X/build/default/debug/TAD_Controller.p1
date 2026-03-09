@@ -26,8 +26,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15
 [; ;./TAD_Timer.h: 15: unsigned long TI_GetTics (unsigned char TimerHandle);
 [v _TI_GetTics `(ul ~T0 @X0 0 ef1`uc ]
-"28 ./TAD_Matrix.h
-[; ;./TAD_Matrix.h: 28: void setMatrix (unsigned char st);
+"24 ./TAD_Matrix.h
+[; ;./TAD_Matrix.h: 24: void setMatrix (unsigned char st);
 [v _setMatrix `(v ~T0 @X0 0 ef1`uc ]
 "13 ./TAD_Speaker.h
 [; ;./TAD_Speaker.h: 13: void setSpeaker (unsigned char st);
@@ -35,11 +35,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18 ./TAD_LEDS.h
 [; ;./TAD_LEDS.h: 18: void setIntensity (unsigned char aux);
 [v _setIntensity `(v ~T0 @X0 0 ef1`uc ]
-"24 ./TAD_Matrix.h
-[; ;./TAD_Matrix.h: 24: unsigned char passwordSet (void);
+"20 ./TAD_Matrix.h
+[; ;./TAD_Matrix.h: 20: unsigned char passwordSet (void);
 [v _passwordSet `(uc ~T0 @X0 0 ef ]
-"26
-[; ;./TAD_Matrix.h: 26: char* getPassword (void);
+"22
+[; ;./TAD_Matrix.h: 22: char* getPassword (void);
 [v _getPassword `(*uc ~T0 @X0 0 ef ]
 "15 ./TAD_Speaker.h
 [; ;./TAD_Speaker.h: 15: void setStop (unsigned char st);
@@ -553,7 +553,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TAD_Controller.c: 41:         case 0:
 [e :U 306 ]
 "42
-[; ;TAD_Controller.c: 42:             uid_ptr = "> LSBank - New Day!\n";
+[; ;TAD_Controller.c: 42:             uid_ptr = "> LSBank - New Day!\r\n";
 [e = _uid_ptr :s 1C ]
 "43
 [; ;TAD_Controller.c: 43:             i = 0;
@@ -621,7 +621,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TAD_Controller.c: 61:                 speaker_sound(1, 200);
 [e ( _speaker_sound (2 , -> -> 1 `i `uc -> -> 200 `i `ui ]
 "62
-[; ;TAD_Controller.c: 62:                 uid_ptr = "> LSBank - Open exterior door\n";
+[; ;TAD_Controller.c: 62:                 uid_ptr = "> LSBank - Open exterior door\r\n";
 [e = _uid_ptr :s 2C ]
 "63
 [; ;TAD_Controller.c: 63:                 i = 0;
@@ -687,7 +687,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! >= ( _TI_GetTics (1 _timerHandle -> -> -> 1000 `i `l `ul 318  ]
 {
 "81
-[; ;TAD_Controller.c: 81:                 uid_ptr = "> LSBank - Close exterior door\n";
+[; ;TAD_Controller.c: 81:                 uid_ptr = "> LSBank - Close exterior door\r\n";
 [e = _uid_ptr :s 3C ]
 "82
 [; ;TAD_Controller.c: 82:                 i = 0;
@@ -849,7 +849,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TAD_Controller.c: 127:                 setOK(0);
 [e ( _setOK (1 -> -> 0 `i `uc ]
 "128
-[; ;TAD_Controller.c: 128:                 uid_ptr = "> LSBank - Thief intercepted\n";
+[; ;TAD_Controller.c: 128:                 uid_ptr = "> LSBank - Thief intercepted\r\n";
 [e = _uid_ptr :s 5C ]
 "129
 [; ;TAD_Controller.c: 129:                 i = 0;
@@ -905,7 +905,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TAD_Controller.c: 143:                     setIntensity(0);
 [e ( _setIntensity (1 -> -> 0 `i `uc ]
 "144
-[; ;TAD_Controller.c: 144:                     uid_ptr = "> LSBank - Open interior door\n";
+[; ;TAD_Controller.c: 144:                     uid_ptr = "> LSBank - Open interior door\r\n";
 [e = _uid_ptr :s 6C ]
 "145
 [; ;TAD_Controller.c: 145:                     state = 15;
@@ -917,786 +917,789 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 335 ]
 {
 "147
-[; ;TAD_Controller.c: 147:                     SIO_SendChar('\n');
-[e ( _SIO_SendChar (1 -> -> 10 `ui `uc ]
+[; ;TAD_Controller.c: 147:                     SIO_SendChar('\r');
+[e ( _SIO_SendChar (1 -> -> 13 `ui `uc ]
 "148
-[; ;TAD_Controller.c: 148:                     uid_ptr = "> LSBank - Permission denied\n";
-[e = _uid_ptr :s 7C ]
+[; ;TAD_Controller.c: 148:                     SIO_SendChar('\n');
+[e ( _SIO_SendChar (1 -> -> 10 `ui `uc ]
 "149
-[; ;TAD_Controller.c: 149:                     state = 9;
-[e = F2754 -> -> 9 `i `uc ]
+[; ;TAD_Controller.c: 149:                     uid_ptr = "> LSBank - Permission denied\r\n";
+[e = _uid_ptr :s 7C ]
 "150
-[; ;TAD_Controller.c: 150:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 150:                     state = 9;
+[e = F2754 -> -> 9 `i `uc ]
 "151
-[; ;TAD_Controller.c: 151:                     tries++;
-[e ++ _tries -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 151:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
 "152
-[; ;TAD_Controller.c: 152:                 }
+[; ;TAD_Controller.c: 152:                     tries++;
+[e ++ _tries -> -> 1 `i `uc ]
+"153
+[; ;TAD_Controller.c: 153:                 }
 }
 [e :U 336 ]
-"153
-[; ;TAD_Controller.c: 153:             }
+"154
+[; ;TAD_Controller.c: 154:             }
 }
 [e :U 334 ]
-"154
-[; ;TAD_Controller.c: 154:             break;
-[e $U 304  ]
 "155
-[; ;TAD_Controller.c: 155:         case 9:
-[e :U 337 ]
+[; ;TAD_Controller.c: 155:             break;
+[e $U 304  ]
 "156
-[; ;TAD_Controller.c: 156:             if (SIO_TxAvail()) {
+[; ;TAD_Controller.c: 156:         case 9:
+[e :U 337 ]
+"157
+[; ;TAD_Controller.c: 157:             if (SIO_TxAvail()) {
 [e $ ! != -> ( _SIO_TxAvail ..  `i -> 0 `i 338  ]
 {
-"157
-[; ;TAD_Controller.c: 157:                 if (uid_ptr[i] != '\0') {
+"158
+[; ;TAD_Controller.c: 158:                 if (uid_ptr[i] != '\0') {
 [e $ ! != -> *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux `ui -> 0 `ui 339  ]
 {
-"158
-[; ;TAD_Controller.c: 158:                     SIO_SendChar(uid_ptr[i]);
-[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "159
-[; ;TAD_Controller.c: 159:                     i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 159:                     SIO_SendChar(uid_ptr[i]);
+[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "160
-[; ;TAD_Controller.c: 160:                 } else {
+[; ;TAD_Controller.c: 160:                     i++;
+[e ++ _i -> -> 1 `i `uc ]
+"161
+[; ;TAD_Controller.c: 161:                 } else {
 }
 [e $U 340  ]
 [e :U 339 ]
 {
-"161
-[; ;TAD_Controller.c: 161:                     if (TI_GetTics(timerHandle) < 60000 && tries < 3) {
+"162
+[; ;TAD_Controller.c: 162:                     if (TI_GetTics(timerHandle) < 60000 && tries < 3) {
 [e $ ! && < ( _TI_GetTics (1 _timerHandle -> -> 60000 `l `ul < -> _tries `i -> 3 `i 341  ]
 {
-"162
-[; ;TAD_Controller.c: 162:                         i = 0;
-[e = _i -> -> 0 `i `uc ]
 "163
-[; ;TAD_Controller.c: 163:                         state = 10;
-[e = F2754 -> -> 10 `i `uc ]
+[; ;TAD_Controller.c: 163:                         i = 0;
+[e = _i -> -> 0 `i `uc ]
 "164
-[; ;TAD_Controller.c: 164:                         uid_ptr = "> LSBank - Enter PIN: ";
-[e = _uid_ptr :s 8C ]
+[; ;TAD_Controller.c: 164:                         state = 10;
+[e = F2754 -> -> 10 `i `uc ]
 "165
-[; ;TAD_Controller.c: 165:                     } else {
+[; ;TAD_Controller.c: 165:                         uid_ptr = "> LSBank - Enter PIN: ";
+[e = _uid_ptr :s 8C ]
+"166
+[; ;TAD_Controller.c: 166:                     } else {
 }
 [e $U 342  ]
 [e :U 341 ]
 {
-"166
-[; ;TAD_Controller.c: 166:                         setMatrix(0);
-[e ( _setMatrix (1 -> -> 0 `i `uc ]
 "167
-[; ;TAD_Controller.c: 167:                         setStop(1);
-[e ( _setStop (1 -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 167:                         setMatrix(0);
+[e ( _setMatrix (1 -> -> 0 `i `uc ]
 "168
-[; ;TAD_Controller.c: 168:                         setIntensity(0);
-[e ( _setIntensity (1 -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 168:                         setStop(1);
+[e ( _setStop (1 -> -> 1 `i `uc ]
 "169
-[; ;TAD_Controller.c: 169:                         setAlarm(1);
-[e ( _setAlarm (1 -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 169:                         setIntensity(0);
+[e ( _setIntensity (1 -> -> 0 `i `uc ]
 "170
-[; ;TAD_Controller.c: 170:                         setOK(0);
-[e ( _setOK (1 -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 170:                         setAlarm(1);
+[e ( _setAlarm (1 -> -> 1 `i `uc ]
 "171
-[; ;TAD_Controller.c: 171:                         uid_ptr = "> LSBank - Thief intercepted\n";
-[e = _uid_ptr :s 9C ]
+[; ;TAD_Controller.c: 171:                         setOK(0);
+[e ( _setOK (1 -> -> 0 `i `uc ]
 "172
-[; ;TAD_Controller.c: 172:                         i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 172:                         uid_ptr = "> LSBank - Thief intercepted\r\n";
+[e = _uid_ptr :s 9C ]
 "173
-[; ;TAD_Controller.c: 173:                         state = 11;
-[e = F2754 -> -> 11 `i `uc ]
+[; ;TAD_Controller.c: 173:                         i = 0;
+[e = _i -> -> 0 `i `uc ]
 "174
-[; ;TAD_Controller.c: 174:                     }
+[; ;TAD_Controller.c: 174:                         state = 11;
+[e = F2754 -> -> 11 `i `uc ]
+"175
+[; ;TAD_Controller.c: 175:                     }
 }
 [e :U 342 ]
-"175
-[; ;TAD_Controller.c: 175:                 }
+"176
+[; ;TAD_Controller.c: 176:                 }
 }
 [e :U 340 ]
-"176
-[; ;TAD_Controller.c: 176:             }
+"177
+[; ;TAD_Controller.c: 177:             }
 }
 [e :U 338 ]
-"177
-[; ;TAD_Controller.c: 177:             break;
-[e $U 304  ]
 "178
-[; ;TAD_Controller.c: 178:         case 10:
-[e :U 343 ]
+[; ;TAD_Controller.c: 178:             break;
+[e $U 304  ]
 "179
-[; ;TAD_Controller.c: 179:             if (SIO_TxAvail()) {
+[; ;TAD_Controller.c: 179:         case 10:
+[e :U 343 ]
+"180
+[; ;TAD_Controller.c: 180:             if (SIO_TxAvail()) {
 [e $ ! != -> ( _SIO_TxAvail ..  `i -> 0 `i 344  ]
 {
-"180
-[; ;TAD_Controller.c: 180:                 if (uid_ptr[i] != '\0') {
+"181
+[; ;TAD_Controller.c: 181:                 if (uid_ptr[i] != '\0') {
 [e $ ! != -> *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux `ui -> 0 `ui 345  ]
 {
-"181
-[; ;TAD_Controller.c: 181:                     SIO_SendChar(uid_ptr[i]);
-[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "182
-[; ;TAD_Controller.c: 182:                     i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 182:                     SIO_SendChar(uid_ptr[i]);
+[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "183
-[; ;TAD_Controller.c: 183:                 } else {
+[; ;TAD_Controller.c: 183:                     i++;
+[e ++ _i -> -> 1 `i `uc ]
+"184
+[; ;TAD_Controller.c: 184:                 } else {
 }
 [e $U 346  ]
 [e :U 345 ]
 {
-"184
-[; ;TAD_Controller.c: 184:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
 "185
-[; ;TAD_Controller.c: 185:                     state = 7;
-[e = F2754 -> -> 7 `i `uc ]
+[; ;TAD_Controller.c: 185:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
 "186
-[; ;TAD_Controller.c: 186:                 }
+[; ;TAD_Controller.c: 186:                     state = 7;
+[e = F2754 -> -> 7 `i `uc ]
+"187
+[; ;TAD_Controller.c: 187:                 }
 }
 [e :U 346 ]
-"187
-[; ;TAD_Controller.c: 187:             }
+"188
+[; ;TAD_Controller.c: 188:             }
 }
 [e :U 344 ]
-"188
-[; ;TAD_Controller.c: 188:             break;
-[e $U 304  ]
 "189
-[; ;TAD_Controller.c: 189:         case 11:
-[e :U 347 ]
+[; ;TAD_Controller.c: 189:             break;
+[e $U 304  ]
 "190
-[; ;TAD_Controller.c: 190:             if (SIO_TxAvail()) {
+[; ;TAD_Controller.c: 190:         case 11:
+[e :U 347 ]
+"191
+[; ;TAD_Controller.c: 191:             if (SIO_TxAvail()) {
 [e $ ! != -> ( _SIO_TxAvail ..  `i -> 0 `i 348  ]
 {
-"191
-[; ;TAD_Controller.c: 191:                 if (uid_ptr[i] != '\0') {
+"192
+[; ;TAD_Controller.c: 192:                 if (uid_ptr[i] != '\0') {
 [e $ ! != -> *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux `ui -> 0 `ui 349  ]
 {
-"192
-[; ;TAD_Controller.c: 192:                     SIO_SendChar(uid_ptr[i]);
-[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "193
-[; ;TAD_Controller.c: 193:                     i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 193:                     SIO_SendChar(uid_ptr[i]);
+[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "194
-[; ;TAD_Controller.c: 194:                 } else {
+[; ;TAD_Controller.c: 194:                     i++;
+[e ++ _i -> -> 1 `i `uc ]
+"195
+[; ;TAD_Controller.c: 195:                 } else {
 }
 [e $U 350  ]
 [e :U 349 ]
 {
-"195
-[; ;TAD_Controller.c: 195:                     speaker_sound(0, 10000);
-[e ( _speaker_sound (2 , -> -> 0 `i `uc -> -> 10000 `i `ui ]
 "196
-[; ;TAD_Controller.c: 196:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 196:                     speaker_sound(0, 10000);
+[e ( _speaker_sound (2 , -> -> 0 `i `uc -> -> 10000 `i `ui ]
 "197
-[; ;TAD_Controller.c: 197:                     state = 12;
-[e = F2754 -> -> 12 `i `uc ]
+[; ;TAD_Controller.c: 197:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
 "198
-[; ;TAD_Controller.c: 198:                     uid_ptr = "> LSBank - Reset System: ";
-[e = _uid_ptr :s 10C ]
+[; ;TAD_Controller.c: 198:                     state = 12;
+[e = F2754 -> -> 12 `i `uc ]
 "199
-[; ;TAD_Controller.c: 199:                 }
+[; ;TAD_Controller.c: 199:                     uid_ptr = "> LSBank - Reset System: ";
+[e = _uid_ptr :s 10C ]
+"200
+[; ;TAD_Controller.c: 200:                 }
 }
 [e :U 350 ]
-"200
-[; ;TAD_Controller.c: 200:             }
+"201
+[; ;TAD_Controller.c: 201:             }
 }
 [e :U 348 ]
-"201
-[; ;TAD_Controller.c: 201:             break;
-[e $U 304  ]
 "202
-[; ;TAD_Controller.c: 202:         case 12:
-[e :U 351 ]
+[; ;TAD_Controller.c: 202:             break;
+[e $U 304  ]
 "203
-[; ;TAD_Controller.c: 203:             if (SIO_TxAvail()) {
+[; ;TAD_Controller.c: 203:         case 12:
+[e :U 351 ]
+"204
+[; ;TAD_Controller.c: 204:             if (SIO_TxAvail()) {
 [e $ ! != -> ( _SIO_TxAvail ..  `i -> 0 `i 352  ]
 {
-"204
-[; ;TAD_Controller.c: 204:                 if (uid_ptr[i] != '\0') {
+"205
+[; ;TAD_Controller.c: 205:                 if (uid_ptr[i] != '\0') {
 [e $ ! != -> *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux `ui -> 0 `ui 353  ]
 {
-"205
-[; ;TAD_Controller.c: 205:                     SIO_SendChar(uid_ptr[i]);
-[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "206
-[; ;TAD_Controller.c: 206:                     i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 206:                     SIO_SendChar(uid_ptr[i]);
+[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "207
-[; ;TAD_Controller.c: 207:                 } else {
+[; ;TAD_Controller.c: 207:                     i++;
+[e ++ _i -> -> 1 `i `uc ]
+"208
+[; ;TAD_Controller.c: 208:                 } else {
 }
 [e $U 354  ]
 [e :U 353 ]
 {
-"208
-[; ;TAD_Controller.c: 208:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
 "209
-[; ;TAD_Controller.c: 209:                     state = 13;
-[e = F2754 -> -> 13 `i `uc ]
+[; ;TAD_Controller.c: 209:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
 "210
-[; ;TAD_Controller.c: 210:                     yesIdx = 0;
-[e = _yesIdx -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 210:                     state = 13;
+[e = F2754 -> -> 13 `i `uc ]
 "211
-[; ;TAD_Controller.c: 211:                 }
+[; ;TAD_Controller.c: 211:                     yesIdx = 0;
+[e = _yesIdx -> -> 0 `i `uc ]
+"212
+[; ;TAD_Controller.c: 212:                 }
 }
 [e :U 354 ]
-"212
-[; ;TAD_Controller.c: 212:             }
+"213
+[; ;TAD_Controller.c: 213:             }
 }
 [e :U 352 ]
-"213
-[; ;TAD_Controller.c: 213:             break;
-[e $U 304  ]
 "214
-[; ;TAD_Controller.c: 214:         case 13:
-[e :U 355 ]
+[; ;TAD_Controller.c: 214:             break;
+[e $U 304  ]
 "215
-[; ;TAD_Controller.c: 215:             if (SIO_CharAvail()) {
+[; ;TAD_Controller.c: 215:         case 13:
+[e :U 355 ]
+"216
+[; ;TAD_Controller.c: 216:             if (SIO_CharAvail()) {
 [e $ ! != ( _SIO_CharAvail ..  -> 0 `i 356  ]
 {
-"216
-[; ;TAD_Controller.c: 216:                 char c = SIO_GetChar();
+"217
+[; ;TAD_Controller.c: 217:                 char c = SIO_GetChar();
 [v _c `uc ~T0 @X0 1 a ]
 [e = _c ( _SIO_GetChar ..  ]
-"217
-[; ;TAD_Controller.c: 217:                 if (!(c == '\r' || c == '\n')) {
+"218
+[; ;TAD_Controller.c: 218:                 if (!(c == '\r' || c == '\n')) {
 [e $ ! ! || == -> _c `ui -> 13 `ui == -> _c `ui -> 10 `ui 357  ]
 {
-"218
-[; ;TAD_Controller.c: 218:                     if (yesIdx < 3) {
+"219
+[; ;TAD_Controller.c: 219:                     if (yesIdx < 3) {
 [e $ ! < -> _yesIdx `i -> 3 `i 358  ]
 {
-"219
-[; ;TAD_Controller.c: 219:                         yesBuf[yesIdx++] = c;
-[e = *U + &U _yesBuf * -> ++ _yesIdx -> -> 1 `i `uc `ux -> -> # *U &U _yesBuf `ui `ux _c ]
 "220
-[; ;TAD_Controller.c: 220:                     }
+[; ;TAD_Controller.c: 220:                         yesBuf[yesIdx++] = c;
+[e = *U + &U _yesBuf * -> ++ _yesIdx -> -> 1 `i `uc `ux -> -> # *U &U _yesBuf `ui `ux _c ]
+"221
+[; ;TAD_Controller.c: 221:                     }
 }
 [e :U 358 ]
-"221
-[; ;TAD_Controller.c: 221:                 } else {
+"222
+[; ;TAD_Controller.c: 222:                 } else {
 }
 [e $U 359  ]
 [e :U 357 ]
 {
-"222
-[; ;TAD_Controller.c: 222:                     yesBuf[yesIdx] = '\0';
-[e = *U + &U _yesBuf * -> _yesIdx `ux -> -> # *U &U _yesBuf `ui `ux -> -> 0 `ui `uc ]
 "223
-[; ;TAD_Controller.c: 223:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 223:                     yesBuf[yesIdx] = '\0';
+[e = *U + &U _yesBuf * -> _yesIdx `ux -> -> # *U &U _yesBuf `ui `ux -> -> 0 `ui `uc ]
 "224
-[; ;TAD_Controller.c: 224:                     count = 0;
-[e = _count -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 224:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
 "225
-[; ;TAD_Controller.c: 225:                     state = 14;
-[e = F2754 -> -> 14 `i `uc ]
+[; ;TAD_Controller.c: 225:                     count = 0;
+[e = _count -> -> 0 `i `uc ]
 "226
-[; ;TAD_Controller.c: 226:                 }
+[; ;TAD_Controller.c: 226:                     state = 14;
+[e = F2754 -> -> 14 `i `uc ]
+"227
+[; ;TAD_Controller.c: 227:                 }
 }
 [e :U 359 ]
-"227
-[; ;TAD_Controller.c: 227:             }
+"228
+[; ;TAD_Controller.c: 228:             }
 }
 [e :U 356 ]
-"228
-[; ;TAD_Controller.c: 228:             break;
-[e $U 304  ]
 "229
-[; ;TAD_Controller.c: 229:         case 14:
-[e :U 360 ]
+[; ;TAD_Controller.c: 229:             break;
+[e $U 304  ]
 "230
-[; ;TAD_Controller.c: 230:             if (i < 3) {
+[; ;TAD_Controller.c: 230:         case 14:
+[e :U 360 ]
+"231
+[; ;TAD_Controller.c: 231:             if (i < 3) {
 [e $ ! < -> _i `i -> 3 `i 361  ]
 {
-"231
-[; ;TAD_Controller.c: 231:                 if (yesBuf[i] == yes_aux[i]) {
+"232
+[; ;TAD_Controller.c: 232:                 if (yesBuf[i] == yes_aux[i]) {
 [e $ ! == -> *U + &U _yesBuf * -> _i `ux -> -> # *U &U _yesBuf `ui `ux `i -> *U + &U _yes_aux * -> _i `ux -> -> # *U &U _yes_aux `ui `ux `i 362  ]
 {
-"232
-[; ;TAD_Controller.c: 232:                     count++;
-[e ++ _count -> -> 1 `i `uc ]
 "233
-[; ;TAD_Controller.c: 233:                 }
+[; ;TAD_Controller.c: 233:                     count++;
+[e ++ _count -> -> 1 `i `uc ]
+"234
+[; ;TAD_Controller.c: 234:                 }
 }
 [e :U 362 ]
-"234
-[; ;TAD_Controller.c: 234:                 i++;
-[e ++ _i -> -> 1 `i `uc ]
 "235
-[; ;TAD_Controller.c: 235:             } else {
+[; ;TAD_Controller.c: 235:                 i++;
+[e ++ _i -> -> 1 `i `uc ]
+"236
+[; ;TAD_Controller.c: 236:             } else {
 }
 [e $U 363  ]
 [e :U 361 ]
 {
-"236
-[; ;TAD_Controller.c: 236:                 if (count == 3) {
+"237
+[; ;TAD_Controller.c: 237:                 if (count == 3) {
 [e $ ! == -> _count `i -> 3 `i 364  ]
 {
-"237
-[; ;TAD_Controller.c: 237:                     state = 0;
-[e = F2754 -> -> 0 `i `uc ]
 "238
-[; ;TAD_Controller.c: 238:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 238:                     state = 0;
+[e = F2754 -> -> 0 `i `uc ]
 "239
-[; ;TAD_Controller.c: 239:                 } else {
+[; ;TAD_Controller.c: 239:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
+"240
+[; ;TAD_Controller.c: 240:                 } else {
 }
 [e $U 365  ]
 [e :U 364 ]
 {
-"240
-[; ;TAD_Controller.c: 240:                     state = 12;
-[e = F2754 -> -> 12 `i `uc ]
 "241
-[; ;TAD_Controller.c: 241:                     yesIdx = 0;
-[e = _yesIdx -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 241:                     state = 12;
+[e = F2754 -> -> 12 `i `uc ]
 "242
-[; ;TAD_Controller.c: 242:                     uid_ptr = "> LSBank - Reset System: ";
-[e = _uid_ptr :s 11C ]
+[; ;TAD_Controller.c: 242:                     yesIdx = 0;
+[e = _yesIdx -> -> 0 `i `uc ]
 "243
-[; ;TAD_Controller.c: 243:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 243:                     uid_ptr = "> LSBank - Reset System: ";
+[e = _uid_ptr :s 11C ]
 "244
-[; ;TAD_Controller.c: 244:                 }
+[; ;TAD_Controller.c: 244:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
+"245
+[; ;TAD_Controller.c: 245:                 }
 }
 [e :U 365 ]
-"245
-[; ;TAD_Controller.c: 245:             }
+"246
+[; ;TAD_Controller.c: 246:             }
 }
 [e :U 363 ]
-"246
-[; ;TAD_Controller.c: 246:             break;
-[e $U 304  ]
 "247
-[; ;TAD_Controller.c: 247:         case 15:
-[e :U 366 ]
+[; ;TAD_Controller.c: 247:             break;
+[e $U 304  ]
 "248
-[; ;TAD_Controller.c: 248:             if (SIO_TxAvail()) {
+[; ;TAD_Controller.c: 248:         case 15:
+[e :U 366 ]
+"249
+[; ;TAD_Controller.c: 249:             if (SIO_TxAvail()) {
 [e $ ! != -> ( _SIO_TxAvail ..  `i -> 0 `i 367  ]
 {
-"249
-[; ;TAD_Controller.c: 249:                 if (uid_ptr[i] != '\0') {
+"250
+[; ;TAD_Controller.c: 250:                 if (uid_ptr[i] != '\0') {
 [e $ ! != -> *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux `ui -> 0 `ui 368  ]
 {
-"250
-[; ;TAD_Controller.c: 250:                     SIO_SendChar(uid_ptr[i]);
-[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "251
-[; ;TAD_Controller.c: 251:                     i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 251:                     SIO_SendChar(uid_ptr[i]);
+[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "252
-[; ;TAD_Controller.c: 252:                 } else {
+[; ;TAD_Controller.c: 252:                     i++;
+[e ++ _i -> -> 1 `i `uc ]
+"253
+[; ;TAD_Controller.c: 253:                 } else {
 }
 [e $U 369  ]
 [e :U 368 ]
 {
-"253
-[; ;TAD_Controller.c: 253:                     TI_ResetTics(timerHandle);
-[e ( _TI_ResetTics (1 _timerHandle ]
 "254
-[; ;TAD_Controller.c: 254:                     state = 16;
-[e = F2754 -> -> 16 `i `uc ]
+[; ;TAD_Controller.c: 254:                     TI_ResetTics(timerHandle);
+[e ( _TI_ResetTics (1 _timerHandle ]
 "255
-[; ;TAD_Controller.c: 255:                 }
+[; ;TAD_Controller.c: 255:                     state = 16;
+[e = F2754 -> -> 16 `i `uc ]
+"256
+[; ;TAD_Controller.c: 256:                 }
 }
 [e :U 369 ]
-"256
-[; ;TAD_Controller.c: 256:             }
+"257
+[; ;TAD_Controller.c: 257:             }
 }
 [e :U 367 ]
-"257
-[; ;TAD_Controller.c: 257:             break;
-[e $U 304  ]
 "258
-[; ;TAD_Controller.c: 258:         case 16:
-[e :U 370 ]
+[; ;TAD_Controller.c: 258:             break;
+[e $U 304  ]
 "259
-[; ;TAD_Controller.c: 259:             if (TI_GetTics(timerHandle) >= 1000) {
+[; ;TAD_Controller.c: 259:         case 16:
+[e :U 370 ]
+"260
+[; ;TAD_Controller.c: 260:             if (TI_GetTics(timerHandle) >= 1000) {
 [e $ ! >= ( _TI_GetTics (1 _timerHandle -> -> -> 1000 `i `l `ul 371  ]
 {
-"260
-[; ;TAD_Controller.c: 260:                 uid_ptr = "> LSBank - Close interior door\n";
-[e = _uid_ptr :s 12C ]
 "261
-[; ;TAD_Controller.c: 261:                 i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 261:                 uid_ptr = "> LSBank - Close interior door\r\n";
+[e = _uid_ptr :s 12C ]
 "262
-[; ;TAD_Controller.c: 262:                 state = 17;
-[e = F2754 -> -> 17 `i `uc ]
+[; ;TAD_Controller.c: 262:                 i = 0;
+[e = _i -> -> 0 `i `uc ]
 "263
-[; ;TAD_Controller.c: 263:             }
+[; ;TAD_Controller.c: 263:                 state = 17;
+[e = F2754 -> -> 17 `i `uc ]
+"264
+[; ;TAD_Controller.c: 264:             }
 }
 [e :U 371 ]
-"264
-[; ;TAD_Controller.c: 264:             break;
-[e $U 304  ]
 "265
-[; ;TAD_Controller.c: 265:         case 17:
-[e :U 372 ]
+[; ;TAD_Controller.c: 265:             break;
+[e $U 304  ]
 "266
-[; ;TAD_Controller.c: 266:             if (SIO_TxAvail()) {
+[; ;TAD_Controller.c: 266:         case 17:
+[e :U 372 ]
+"267
+[; ;TAD_Controller.c: 267:             if (SIO_TxAvail()) {
 [e $ ! != -> ( _SIO_TxAvail ..  `i -> 0 `i 373  ]
 {
-"267
-[; ;TAD_Controller.c: 267:                 if (uid_ptr[i] != '\0') {
+"268
+[; ;TAD_Controller.c: 268:                 if (uid_ptr[i] != '\0') {
 [e $ ! != -> *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux `ui -> 0 `ui 374  ]
 {
-"268
-[; ;TAD_Controller.c: 268:                     SIO_SendChar(uid_ptr[i]);
-[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "269
-[; ;TAD_Controller.c: 269:                     i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 269:                     SIO_SendChar(uid_ptr[i]);
+[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "270
-[; ;TAD_Controller.c: 270:                 } else {
+[; ;TAD_Controller.c: 270:                     i++;
+[e ++ _i -> -> 1 `i `uc ]
+"271
+[; ;TAD_Controller.c: 271:                 } else {
 }
 [e $U 375  ]
 [e :U 374 ]
 {
-"271
-[; ;TAD_Controller.c: 271:                     speaker_sound(1, 200);
-[e ( _speaker_sound (2 , -> -> 1 `i `uc -> -> 200 `i `ui ]
 "272
-[; ;TAD_Controller.c: 272:                     state = 18;
-[e = F2754 -> -> 18 `i `uc ]
+[; ;TAD_Controller.c: 272:                     speaker_sound(1, 200);
+[e ( _speaker_sound (2 , -> -> 1 `i `uc -> -> 200 `i `ui ]
 "273
-[; ;TAD_Controller.c: 273:                 }
+[; ;TAD_Controller.c: 273:                     state = 18;
+[e = F2754 -> -> 18 `i `uc ]
+"274
+[; ;TAD_Controller.c: 274:                 }
 }
 [e :U 375 ]
-"274
-[; ;TAD_Controller.c: 274:             }
+"275
+[; ;TAD_Controller.c: 275:             }
 }
 [e :U 373 ]
-"275
-[; ;TAD_Controller.c: 275:             break;
-[e $U 304  ]
 "276
-[; ;TAD_Controller.c: 276:         case 18:
-[e :U 376 ]
+[; ;TAD_Controller.c: 276:             break;
+[e $U 304  ]
 "277
-[; ;TAD_Controller.c: 277:             if (getButton()) {
+[; ;TAD_Controller.c: 277:         case 18:
+[e :U 376 ]
+"278
+[; ;TAD_Controller.c: 278:             if (getButton()) {
 [e $ ! != -> ( _getButton ..  `i -> 0 `i 377  ]
 {
-"278
-[; ;TAD_Controller.c: 278:                 uid_ptr = "> LSBank - Exit Requested: ";
-[e = _uid_ptr :s 13C ]
 "279
-[; ;TAD_Controller.c: 279:                 state = 19;
-[e = F2754 -> -> 19 `i `uc ]
+[; ;TAD_Controller.c: 279:                 uid_ptr = "> LSBank - Exit Requested: ";
+[e = _uid_ptr :s 13C ]
 "280
-[; ;TAD_Controller.c: 280:                 i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 280:                 state = 19;
+[e = F2754 -> -> 19 `i `uc ]
 "281
-[; ;TAD_Controller.c: 281:             }
+[; ;TAD_Controller.c: 281:                 i = 0;
+[e = _i -> -> 0 `i `uc ]
+"282
+[; ;TAD_Controller.c: 282:             }
 }
 [e :U 377 ]
-"282
-[; ;TAD_Controller.c: 282:             break;
-[e $U 304  ]
 "283
-[; ;TAD_Controller.c: 283:         case 19:
-[e :U 378 ]
+[; ;TAD_Controller.c: 283:             break;
+[e $U 304  ]
 "284
-[; ;TAD_Controller.c: 284:             if (SIO_TxAvail()) {
+[; ;TAD_Controller.c: 284:         case 19:
+[e :U 378 ]
+"285
+[; ;TAD_Controller.c: 285:             if (SIO_TxAvail()) {
 [e $ ! != -> ( _SIO_TxAvail ..  `i -> 0 `i 379  ]
 {
-"285
-[; ;TAD_Controller.c: 285:                 if (uid_ptr[i] != '\0') {
+"286
+[; ;TAD_Controller.c: 286:                 if (uid_ptr[i] != '\0') {
 [e $ ! != -> *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux `ui -> 0 `ui 380  ]
 {
-"286
-[; ;TAD_Controller.c: 286:                     SIO_SendChar(uid_ptr[i]);
-[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "287
-[; ;TAD_Controller.c: 287:                     i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 287:                     SIO_SendChar(uid_ptr[i]);
+[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "288
-[; ;TAD_Controller.c: 288:                 } else {
+[; ;TAD_Controller.c: 288:                     i++;
+[e ++ _i -> -> 1 `i `uc ]
+"289
+[; ;TAD_Controller.c: 289:                 } else {
 }
 [e $U 381  ]
 [e :U 380 ]
 {
-"289
-[; ;TAD_Controller.c: 289:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
 "290
-[; ;TAD_Controller.c: 290:                     state = 20;
-[e = F2754 -> -> 20 `i `uc ]
+[; ;TAD_Controller.c: 290:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
 "291
-[; ;TAD_Controller.c: 291:                     yesIdx = 0;
-[e = _yesIdx -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 291:                     state = 20;
+[e = F2754 -> -> 20 `i `uc ]
 "292
-[; ;TAD_Controller.c: 292:                 }
+[; ;TAD_Controller.c: 292:                     yesIdx = 0;
+[e = _yesIdx -> -> 0 `i `uc ]
+"293
+[; ;TAD_Controller.c: 293:                 }
 }
 [e :U 381 ]
-"293
-[; ;TAD_Controller.c: 293:             }
+"294
+[; ;TAD_Controller.c: 294:             }
 }
 [e :U 379 ]
-"294
-[; ;TAD_Controller.c: 294:             break;
-[e $U 304  ]
 "295
-[; ;TAD_Controller.c: 295:         case 20:
-[e :U 382 ]
+[; ;TAD_Controller.c: 295:             break;
+[e $U 304  ]
 "296
-[; ;TAD_Controller.c: 296:             if (SIO_CharAvail()) {
+[; ;TAD_Controller.c: 296:         case 20:
+[e :U 382 ]
+"297
+[; ;TAD_Controller.c: 297:             if (SIO_CharAvail()) {
 [e $ ! != ( _SIO_CharAvail ..  -> 0 `i 383  ]
 {
-"297
-[; ;TAD_Controller.c: 297:                 char c = SIO_GetChar();
+"298
+[; ;TAD_Controller.c: 298:                 char c = SIO_GetChar();
 [v _c `uc ~T0 @X0 1 a ]
 [e = _c ( _SIO_GetChar ..  ]
-"298
-[; ;TAD_Controller.c: 298:                 if (!(c == '\r' || c == '\n')) {
+"299
+[; ;TAD_Controller.c: 299:                 if (!(c == '\r' || c == '\n')) {
 [e $ ! ! || == -> _c `ui -> 13 `ui == -> _c `ui -> 10 `ui 384  ]
 {
-"299
-[; ;TAD_Controller.c: 299:                     if (yesIdx < 3) {
+"300
+[; ;TAD_Controller.c: 300:                     if (yesIdx < 3) {
 [e $ ! < -> _yesIdx `i -> 3 `i 385  ]
 {
-"300
-[; ;TAD_Controller.c: 300:                         yesBuf[yesIdx++] = c;
-[e = *U + &U _yesBuf * -> ++ _yesIdx -> -> 1 `i `uc `ux -> -> # *U &U _yesBuf `ui `ux _c ]
 "301
-[; ;TAD_Controller.c: 301:                     }
+[; ;TAD_Controller.c: 301:                         yesBuf[yesIdx++] = c;
+[e = *U + &U _yesBuf * -> ++ _yesIdx -> -> 1 `i `uc `ux -> -> # *U &U _yesBuf `ui `ux _c ]
+"302
+[; ;TAD_Controller.c: 302:                     }
 }
 [e :U 385 ]
-"302
-[; ;TAD_Controller.c: 302:                 } else {
+"303
+[; ;TAD_Controller.c: 303:                 } else {
 }
 [e $U 386  ]
 [e :U 384 ]
 {
-"303
-[; ;TAD_Controller.c: 303:                     yesBuf[yesIdx] = '\0';
-[e = *U + &U _yesBuf * -> _yesIdx `ux -> -> # *U &U _yesBuf `ui `ux -> -> 0 `ui `uc ]
 "304
-[; ;TAD_Controller.c: 304:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 304:                     yesBuf[yesIdx] = '\0';
+[e = *U + &U _yesBuf * -> _yesIdx `ux -> -> # *U &U _yesBuf `ui `ux -> -> 0 `ui `uc ]
 "305
-[; ;TAD_Controller.c: 305:                     count = 0;
-[e = _count -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 305:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
 "306
-[; ;TAD_Controller.c: 306:                     state = 21;
-[e = F2754 -> -> 21 `i `uc ]
+[; ;TAD_Controller.c: 306:                     count = 0;
+[e = _count -> -> 0 `i `uc ]
 "307
-[; ;TAD_Controller.c: 307:                 }
+[; ;TAD_Controller.c: 307:                     state = 21;
+[e = F2754 -> -> 21 `i `uc ]
+"308
+[; ;TAD_Controller.c: 308:                 }
 }
 [e :U 386 ]
-"308
-[; ;TAD_Controller.c: 308:             }
+"309
+[; ;TAD_Controller.c: 309:             }
 }
 [e :U 383 ]
-"309
-[; ;TAD_Controller.c: 309:             break;
-[e $U 304  ]
 "310
-[; ;TAD_Controller.c: 310:         case 21:
-[e :U 387 ]
+[; ;TAD_Controller.c: 310:             break;
+[e $U 304  ]
 "311
-[; ;TAD_Controller.c: 311:             if (yesIdx == 3 && yesBuf[0]=='Y' && yesBuf[1]=='e' && yesBuf[2]=='s') {
+[; ;TAD_Controller.c: 311:         case 21:
+[e :U 387 ]
+"312
+[; ;TAD_Controller.c: 312:             if (yesIdx == 3 && yesBuf[0]=='Y' && yesBuf[1]=='e' && yesBuf[2]=='s') {
 [e $ ! && && && == -> _yesIdx `i -> 3 `i == -> *U + &U _yesBuf * -> -> -> 0 `i `ui `ux -> -> # *U &U _yesBuf `ui `ux `ui -> 89 `ui == -> *U + &U _yesBuf * -> -> -> 1 `i `ui `ux -> -> # *U &U _yesBuf `ui `ux `ui -> 101 `ui == -> *U + &U _yesBuf * -> -> -> 2 `i `ui `ux -> -> # *U &U _yesBuf `ui `ux `ui -> 115 `ui 388  ]
 {
-"312
-[; ;TAD_Controller.c: 312:                 uid_ptr = "> LSBank - Open both doors\n";
-[e = _uid_ptr :s 14C ]
 "313
-[; ;TAD_Controller.c: 313:                 i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 313:                 uid_ptr = "> LSBank - Open both doors\r\n";
+[e = _uid_ptr :s 14C ]
 "314
-[; ;TAD_Controller.c: 314:                 state = 23;
-[e = F2754 -> -> 23 `i `uc ]
+[; ;TAD_Controller.c: 314:                 i = 0;
+[e = _i -> -> 0 `i `uc ]
 "315
-[; ;TAD_Controller.c: 315:             }
+[; ;TAD_Controller.c: 315:                 state = 23;
+[e = F2754 -> -> 23 `i `uc ]
+"316
+[; ;TAD_Controller.c: 316:             }
 }
 [e $U 389  ]
-"316
-[; ;TAD_Controller.c: 316:             else if (yesIdx == 2 && yesBuf[0]=='N' && yesBuf[1]=='o') {
+"317
+[; ;TAD_Controller.c: 317:             else if (yesIdx == 2 && yesBuf[0]=='N' && yesBuf[1]=='o') {
 [e :U 388 ]
 [e $ ! && && == -> _yesIdx `i -> 2 `i == -> *U + &U _yesBuf * -> -> -> 0 `i `ui `ux -> -> # *U &U _yesBuf `ui `ux `ui -> 78 `ui == -> *U + &U _yesBuf * -> -> -> 1 `i `ui `ux -> -> # *U &U _yesBuf `ui `ux `ui -> 111 `ui 390  ]
 {
-"317
-[; ;TAD_Controller.c: 317:                 i = 0;
-[e = _i -> -> 0 `i `uc ]
 "318
-[; ;TAD_Controller.c: 318:                 state = 22;
-[e = F2754 -> -> 22 `i `uc ]
+[; ;TAD_Controller.c: 318:                 i = 0;
+[e = _i -> -> 0 `i `uc ]
 "319
-[; ;TAD_Controller.c: 319:             }
+[; ;TAD_Controller.c: 319:                 state = 22;
+[e = F2754 -> -> 22 `i `uc ]
+"320
+[; ;TAD_Controller.c: 320:             }
 }
 [e $U 391  ]
-"320
-[; ;TAD_Controller.c: 320:             else {
+"321
+[; ;TAD_Controller.c: 321:             else {
 [e :U 390 ]
 {
-"321
-[; ;TAD_Controller.c: 321:                 uid_ptr = "> LSBank - Exit Requested: ";
-[e = _uid_ptr :s 15C ]
 "322
-[; ;TAD_Controller.c: 322:                 i = 0;
-[e = _i -> -> 0 `i `uc ]
+[; ;TAD_Controller.c: 322:                 uid_ptr = "> LSBank - Exit Requested: ";
+[e = _uid_ptr :s 15C ]
 "323
-[; ;TAD_Controller.c: 323:                 state = 19;
-[e = F2754 -> -> 19 `i `uc ]
+[; ;TAD_Controller.c: 323:                 i = 0;
+[e = _i -> -> 0 `i `uc ]
 "324
-[; ;TAD_Controller.c: 324:             }
+[; ;TAD_Controller.c: 324:                 state = 19;
+[e = F2754 -> -> 19 `i `uc ]
+"325
+[; ;TAD_Controller.c: 325:             }
 }
 [e :U 391 ]
 [e :U 389 ]
-"325
-[; ;TAD_Controller.c: 325:             break;
-[e $U 304  ]
 "326
-[; ;TAD_Controller.c: 326:         case 22:
-[e :U 392 ]
-"327
-[; ;TAD_Controller.c: 327:             setMatrix(0);
-[e ( _setMatrix (1 -> -> 0 `i `uc ]
-"328
-[; ;TAD_Controller.c: 328:             setStop(1);
-[e ( _setStop (1 -> -> 1 `i `uc ]
-"329
-[; ;TAD_Controller.c: 329:             setIntensity(0);
-[e ( _setIntensity (1 -> -> 0 `i `uc ]
-"330
-[; ;TAD_Controller.c: 330:             setAlarm(1);
-[e ( _setAlarm (1 -> -> 1 `i `uc ]
-"331
-[; ;TAD_Controller.c: 331:             setOK(0);
-[e ( _setOK (1 -> -> 0 `i `uc ]
-"332
-[; ;TAD_Controller.c: 332:             uid_ptr = "> LSBank - Thief intercepted\n";
-[e = _uid_ptr :s 16C ]
-"333
-[; ;TAD_Controller.c: 333:             i = 0;
-[e = _i -> -> 0 `i `uc ]
-"334
-[; ;TAD_Controller.c: 334:             state = 11;
-[e = F2754 -> -> 11 `i `uc ]
-"335
-[; ;TAD_Controller.c: 335:             break;
+[; ;TAD_Controller.c: 326:             break;
 [e $U 304  ]
+"327
+[; ;TAD_Controller.c: 327:         case 22:
+[e :U 392 ]
+"328
+[; ;TAD_Controller.c: 328:             setMatrix(0);
+[e ( _setMatrix (1 -> -> 0 `i `uc ]
+"329
+[; ;TAD_Controller.c: 329:             setStop(1);
+[e ( _setStop (1 -> -> 1 `i `uc ]
+"330
+[; ;TAD_Controller.c: 330:             setIntensity(0);
+[e ( _setIntensity (1 -> -> 0 `i `uc ]
+"331
+[; ;TAD_Controller.c: 331:             setAlarm(1);
+[e ( _setAlarm (1 -> -> 1 `i `uc ]
+"332
+[; ;TAD_Controller.c: 332:             setOK(0);
+[e ( _setOK (1 -> -> 0 `i `uc ]
+"333
+[; ;TAD_Controller.c: 333:             uid_ptr = "> LSBank - Thief intercepted\r\n";
+[e = _uid_ptr :s 16C ]
+"334
+[; ;TAD_Controller.c: 334:             i = 0;
+[e = _i -> -> 0 `i `uc ]
+"335
+[; ;TAD_Controller.c: 335:             state = 11;
+[e = F2754 -> -> 11 `i `uc ]
 "336
-[; ;TAD_Controller.c: 336:         case 23:
-[e :U 393 ]
+[; ;TAD_Controller.c: 336:             break;
+[e $U 304  ]
 "337
-[; ;TAD_Controller.c: 337:             if (SIO_TxAvail()) {
+[; ;TAD_Controller.c: 337:         case 23:
+[e :U 393 ]
+"338
+[; ;TAD_Controller.c: 338:             if (SIO_TxAvail()) {
 [e $ ! != -> ( _SIO_TxAvail ..  `i -> 0 `i 394  ]
 {
-"338
-[; ;TAD_Controller.c: 338:                 if (uid_ptr[i] != '\0') {
+"339
+[; ;TAD_Controller.c: 339:                 if (uid_ptr[i] != '\0') {
 [e $ ! != -> *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux `ui -> 0 `ui 395  ]
 {
-"339
-[; ;TAD_Controller.c: 339:                     SIO_SendChar(uid_ptr[i]);
-[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "340
-[; ;TAD_Controller.c: 340:                     i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 340:                     SIO_SendChar(uid_ptr[i]);
+[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "341
-[; ;TAD_Controller.c: 341:                 } else {
+[; ;TAD_Controller.c: 341:                     i++;
+[e ++ _i -> -> 1 `i `uc ]
+"342
+[; ;TAD_Controller.c: 342:                 } else {
 }
 [e $U 396  ]
 [e :U 395 ]
 {
-"342
-[; ;TAD_Controller.c: 342:                     TI_ResetTics(timerHandle);
-[e ( _TI_ResetTics (1 _timerHandle ]
 "343
-[; ;TAD_Controller.c: 343:                     speaker_sound(1, 200);
-[e ( _speaker_sound (2 , -> -> 1 `i `uc -> -> 200 `i `ui ]
+[; ;TAD_Controller.c: 343:                     TI_ResetTics(timerHandle);
+[e ( _TI_ResetTics (1 _timerHandle ]
 "344
-[; ;TAD_Controller.c: 344:                     state = 24;
-[e = F2754 -> -> 24 `i `uc ]
+[; ;TAD_Controller.c: 344:                     speaker_sound(1, 200);
+[e ( _speaker_sound (2 , -> -> 1 `i `uc -> -> 200 `i `ui ]
 "345
-[; ;TAD_Controller.c: 345:                 }
+[; ;TAD_Controller.c: 345:                     state = 24;
+[e = F2754 -> -> 24 `i `uc ]
+"346
+[; ;TAD_Controller.c: 346:                 }
 }
 [e :U 396 ]
-"346
-[; ;TAD_Controller.c: 346:             }
+"347
+[; ;TAD_Controller.c: 347:             }
 }
 [e :U 394 ]
-"347
-[; ;TAD_Controller.c: 347:             break;
-[e $U 304  ]
 "348
-[; ;TAD_Controller.c: 348:         case 24:
-[e :U 397 ]
+[; ;TAD_Controller.c: 348:             break;
+[e $U 304  ]
 "349
-[; ;TAD_Controller.c: 349:             if (TI_GetTics(timerHandle) >= 1000) {
+[; ;TAD_Controller.c: 349:         case 24:
+[e :U 397 ]
+"350
+[; ;TAD_Controller.c: 350:             if (TI_GetTics(timerHandle) >= 1000) {
 [e $ ! >= ( _TI_GetTics (1 _timerHandle -> -> -> 1000 `i `l `ul 398  ]
 {
-"350
-[; ;TAD_Controller.c: 350:                 i = 0;
-[e = _i -> -> 0 `i `uc ]
 "351
-[; ;TAD_Controller.c: 351:                 uid_ptr = "> LSBank - Close both doors\n";
-[e = _uid_ptr :s 17C ]
+[; ;TAD_Controller.c: 351:                 i = 0;
+[e = _i -> -> 0 `i `uc ]
 "352
-[; ;TAD_Controller.c: 352:                 state = 25;
-[e = F2754 -> -> 25 `i `uc ]
+[; ;TAD_Controller.c: 352:                 uid_ptr = "> LSBank - Close both doors\r\n";
+[e = _uid_ptr :s 17C ]
 "353
-[; ;TAD_Controller.c: 353:             }
+[; ;TAD_Controller.c: 353:                 state = 25;
+[e = F2754 -> -> 25 `i `uc ]
+"354
+[; ;TAD_Controller.c: 354:             }
 }
 [e :U 398 ]
-"354
-[; ;TAD_Controller.c: 354:             break;
-[e $U 304  ]
 "355
-[; ;TAD_Controller.c: 355:         case 25:
-[e :U 399 ]
+[; ;TAD_Controller.c: 355:             break;
+[e $U 304  ]
 "356
-[; ;TAD_Controller.c: 356:             if (SIO_TxAvail()) {
+[; ;TAD_Controller.c: 356:         case 25:
+[e :U 399 ]
+"357
+[; ;TAD_Controller.c: 357:             if (SIO_TxAvail()) {
 [e $ ! != -> ( _SIO_TxAvail ..  `i -> 0 `i 400  ]
 {
-"357
-[; ;TAD_Controller.c: 357:                 if (uid_ptr[i] != '\0') {
+"358
+[; ;TAD_Controller.c: 358:                 if (uid_ptr[i] != '\0') {
 [e $ ! != -> *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux `ui -> 0 `ui 401  ]
 {
-"358
-[; ;TAD_Controller.c: 358:                     SIO_SendChar(uid_ptr[i]);
-[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "359
-[; ;TAD_Controller.c: 359:                     i++;
-[e ++ _i -> -> 1 `i `uc ]
+[; ;TAD_Controller.c: 359:                     SIO_SendChar(uid_ptr[i]);
+[e ( _SIO_SendChar (1 *U + _uid_ptr * -> _i `ux -> -> # *U _uid_ptr `ui `ux ]
 "360
-[; ;TAD_Controller.c: 360:                 } else {
+[; ;TAD_Controller.c: 360:                     i++;
+[e ++ _i -> -> 1 `i `uc ]
+"361
+[; ;TAD_Controller.c: 361:                 } else {
 }
 [e $U 402  ]
 [e :U 401 ]
 {
-"361
-[; ;TAD_Controller.c: 361:                     i = 0;
-[e = _i -> -> 0 `i `uc ]
 "362
-[; ;TAD_Controller.c: 362:                     state = 26;
-[e = F2754 -> -> 26 `i `uc ]
+[; ;TAD_Controller.c: 362:                     i = 0;
+[e = _i -> -> 0 `i `uc ]
 "363
-[; ;TAD_Controller.c: 363:                 }
+[; ;TAD_Controller.c: 363:                     state = 26;
+[e = F2754 -> -> 26 `i `uc ]
+"364
+[; ;TAD_Controller.c: 364:                 }
 }
 [e :U 402 ]
-"364
-[; ;TAD_Controller.c: 364:             }
+"365
+[; ;TAD_Controller.c: 365:             }
 }
 [e :U 400 ]
-"365
-[; ;TAD_Controller.c: 365:             break;
-[e $U 304  ]
 "366
-[; ;TAD_Controller.c: 366:         case 26:
-[e :U 403 ]
-"367
-[; ;TAD_Controller.c: 367:             break;
+[; ;TAD_Controller.c: 366:             break;
 [e $U 304  ]
+"367
+[; ;TAD_Controller.c: 367:         case 26:
+[e :U 403 ]
 "368
-[; ;TAD_Controller.c: 368:     }
+[; ;TAD_Controller.c: 368:             break;
+[e $U 304  ]
+"369
+[; ;TAD_Controller.c: 369:     }
 }
 [e $U 304  ]
 [e :U 305 ]
@@ -1729,8 +1732,8 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 26 `i 403
  304 ]
 [e :U 304 ]
-"369
-[; ;TAD_Controller.c: 369: }
+"370
+[; ;TAD_Controller.c: 370: }
 [e :UE 303 ]
 }
 [a 10C 62 32 76 83 66 97 110 107 32 45 32 82 101 115 101 116 32 83 121 115 116 101 109 58 32 0 ]
@@ -1739,14 +1742,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 15C 62 32 76 83 66 97 110 107 32 45 32 69 120 105 116 32 82 101 113 117 101 115 116 101 100 58 32 0 ]
 [a 4C 62 32 76 83 66 97 110 107 32 45 32 69 110 116 101 114 32 80 73 78 58 32 0 ]
 [a 8C 62 32 76 83 66 97 110 107 32 45 32 69 110 116 101 114 32 80 73 78 58 32 0 ]
-[a 14C 62 32 76 83 66 97 110 107 32 45 32 79 112 101 110 32 98 111 116 104 32 100 111 111 114 115 10 0 ]
-[a 17C 62 32 76 83 66 97 110 107 32 45 32 67 108 111 115 101 32 98 111 116 104 32 100 111 111 114 115 10 0 ]
-[a 2C 62 32 76 83 66 97 110 107 32 45 32 79 112 101 110 32 101 120 116 101 114 105 111 114 32 100 111 111 114 10 0 ]
-[a 3C 62 32 76 83 66 97 110 107 32 45 32 67 108 111 115 101 32 101 120 116 101 114 105 111 114 32 100 111 111 114 10 0 ]
-[a 6C 62 32 76 83 66 97 110 107 32 45 32 79 112 101 110 32 105 110 116 101 114 105 111 114 32 100 111 111 114 10 0 ]
-[a 12C 62 32 76 83 66 97 110 107 32 45 32 67 108 111 115 101 32 105 110 116 101 114 105 111 114 32 100 111 111 114 10 0 ]
-[a 5C 62 32 76 83 66 97 110 107 32 45 32 84 104 105 101 102 32 105 110 116 101 114 99 101 112 116 101 100 10 0 ]
-[a 9C 62 32 76 83 66 97 110 107 32 45 32 84 104 105 101 102 32 105 110 116 101 114 99 101 112 116 101 100 10 0 ]
-[a 16C 62 32 76 83 66 97 110 107 32 45 32 84 104 105 101 102 32 105 110 116 101 114 99 101 112 116 101 100 10 0 ]
-[a 7C 62 32 76 83 66 97 110 107 32 45 32 80 101 114 109 105 115 115 105 111 110 32 100 101 110 105 101 100 10 0 ]
-[a 1C 62 32 76 83 66 97 110 107 32 45 32 78 101 119 32 68 97 121 33 10 0 ]
+[a 14C 62 32 76 83 66 97 110 107 32 45 32 79 112 101 110 32 98 111 116 104 32 100 111 111 114 115 13 10 0 ]
+[a 17C 62 32 76 83 66 97 110 107 32 45 32 67 108 111 115 101 32 98 111 116 104 32 100 111 111 114 115 13 10 0 ]
+[a 2C 62 32 76 83 66 97 110 107 32 45 32 79 112 101 110 32 101 120 116 101 114 105 111 114 32 100 111 111 114 13 10 0 ]
+[a 3C 62 32 76 83 66 97 110 107 32 45 32 67 108 111 115 101 32 101 120 116 101 114 105 111 114 32 100 111 111 114 13 10 0 ]
+[a 6C 62 32 76 83 66 97 110 107 32 45 32 79 112 101 110 32 105 110 116 101 114 105 111 114 32 100 111 111 114 13 10 0 ]
+[a 12C 62 32 76 83 66 97 110 107 32 45 32 67 108 111 115 101 32 105 110 116 101 114 105 111 114 32 100 111 111 114 13 10 0 ]
+[a 5C 62 32 76 83 66 97 110 107 32 45 32 84 104 105 101 102 32 105 110 116 101 114 99 101 112 116 101 100 13 10 0 ]
+[a 9C 62 32 76 83 66 97 110 107 32 45 32 84 104 105 101 102 32 105 110 116 101 114 99 101 112 116 101 100 13 10 0 ]
+[a 16C 62 32 76 83 66 97 110 107 32 45 32 84 104 105 101 102 32 105 110 116 101 114 99 101 112 116 101 100 13 10 0 ]
+[a 7C 62 32 76 83 66 97 110 107 32 45 32 80 101 114 109 105 115 115 105 111 110 32 100 101 110 105 101 100 13 10 0 ]
+[a 1C 62 32 76 83 66 97 110 107 32 45 32 78 101 119 32 68 97 121 33 13 10 0 ]

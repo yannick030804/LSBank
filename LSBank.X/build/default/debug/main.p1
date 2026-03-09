@@ -30,8 +30,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./TAD_Timer.h
 [; ;./TAD_Timer.h: 9: void TI_Init (void);
 [v _TI_Init `(v ~T0 @X0 0 ef ]
-"22 ./TAD_Matrix.h
-[; ;./TAD_Matrix.h: 22: void Matrix_Init (void);
+"18 ./TAD_Matrix.h
+[; ;./TAD_Matrix.h: 18: void Matrix_Init (void);
 [v _Matrix_Init `(v ~T0 @X0 0 ef ]
 "8 ./TAD_Hall.h
 [; ;./TAD_Hall.h: 8: void Hall_Init (void);
@@ -51,8 +51,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;./TAD_Controller.h: 26: void motorController (void);
 [v _motorController `(v ~T0 @X0 0 ef ]
-"20 ./TAD_Matrix.h
-[; ;./TAD_Matrix.h: 20: void motorMatrix (void);
+"16 ./TAD_Matrix.h
+[; ;./TAD_Matrix.h: 16: void motorMatrix (void);
 [v _motorMatrix `(v ~T0 @X0 0 ef ]
 "10 ./TAD_Hall.h
 [; ;./TAD_Hall.h: 10: void motorHall (void);
