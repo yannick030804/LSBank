@@ -42,6 +42,10 @@ void motorController (void) {
         case 0:
             uid_ptr = NEW_DAY;
             i = 0;
+            tries = 0;
+            count = 0;
+            yesIdx = 0;
+            busy = 0;
             state = 1;
             setOK(1);
             setAlarm(0);
@@ -207,11 +211,17 @@ void motorController (void) {
                 } else {
                     speaker_sound(SONIDO_GRAVE, 10000); //hace sonar el speaker durante 10 segundos
                     i = 0;
-                    state = 12;
+                    state = 27;
+                    TI_ResetTics(timerHandle);
                     uid_ptr = RESET_SYSTEM;
                 }
             }
             break;
+        //esperar a que termine de sonar el altavoz
+        case 27:
+            if (TI_GetTics(timerHandle) > 5000) {
+                state = 12;
+            }
         //muestra el mensaje de reiniciar sistema
         case 12:
             if (SIO_TxAvail()) {
