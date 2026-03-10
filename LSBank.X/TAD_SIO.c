@@ -35,6 +35,15 @@ char SIO_GetChar (void) {
     return RCREG;
 }
 
+unsigned char SIO_PutChar (unsigned char c) {
+    if (!SIO_TxAvail()) {
+        return 0;
+    } else {
+        TXREG = c;
+        return 1;
+    }
+}
+
 void SIO_SendChar (char c) {
     TXREG = c;
     TXSTAbits.TXEN = 1;

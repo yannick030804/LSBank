@@ -38,6 +38,7 @@ void motorController (void) {
     static unsigned char state = 0;
 
     switch (state) {
+        //guardar mensaje New Day y apagar todo
         case 0:
             uid_ptr = NEW_DAY;
             i = 0;
@@ -45,6 +46,7 @@ void motorController (void) {
             setOK(1);
             setAlarm(0);
             break;
+        //mostrar mensaje New Day por terminal
         case 1:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -56,6 +58,7 @@ void motorController (void) {
                 }
             }
             break;
+        //esperar a que el Hall esté a 1, guarda el mensaje de abriendo puerta exterior y hace un sonido
         case 2:
             if (getHall() == 1) {
                 speaker_sound(SONIDO_AGUDO, 200);
@@ -64,6 +67,7 @@ void motorController (void) {
                 state = 3;
             }
             break;
+        //mostrar mensaje de abriendo puerta exterior
         case 3:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -76,6 +80,7 @@ void motorController (void) {
                 }
             }
             break;
+        //esperar para guardar el mensaje de cerrando puerta exterior
         case 4:
             if (TI_GetTics(timerHandle) >= 1000) {
                 uid_ptr = CLOSE_EXTERIOR_DOOR;
@@ -83,6 +88,7 @@ void motorController (void) {
                 state = 5;
             }
             break;
+        //mostrar mensaje de que se cierra la puerta exterior y guardar mensaje de introducir PIN
         case 5:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -95,6 +101,7 @@ void motorController (void) {
                 }
             }
             break;
+        //mostrar mensaje de introducir PIN y activar todos los motores (altavoz, matriz y led intensidad)
         case 6:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -111,6 +118,7 @@ void motorController (void) {
                 }
             }
             break;
+        //esperar a que se haya introducido la contraseña, si se han acabado las pruebas apaga motores, sino compara la contraseña
         case 7:
             if (TI_GetTics(timerHandle) < 60000 && tries < 3) {
                 if (passwordSet() == 1) {
@@ -130,6 +138,7 @@ void motorController (void) {
                 state = 11;
             }
             break;
+        //compara la contraseña, si es correcta apaga los motores y guarda el mensaje de abriendo puerta interior. si es incorrecto guarda el mensaje de permiso denegadp
         case 8:
             if (i  < 7) {
                 if (password[i] == psswrd[i]) {
@@ -144,15 +153,16 @@ void motorController (void) {
                     uid_ptr = OPEN_INTERIOR_DOOR;
                     state = 15;
                 } else {
-                    SIO_SendChar('\r');
-                    SIO_SendChar('\n');
                     uid_ptr = PERMISSION_DENIED;
                     state = 9;
                     i = 0;
                     tries++;
                 }
+                SIO_SendChar('\r');
+                SIO_SendChar('\n');
             }
             break;
+        //muestra el mensaje de permiso denegado y comprueba si se puede introducir de nuevp una contraseña, si se puede guarda el mensaje de enter PIN, sino apaga todos los motores y guarda el mensaje de ladrón interceptado
         case 9:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -176,6 +186,7 @@ void motorController (void) {
                 }
             }
             break;
+        //muestra el mensaje de Enter PIN
         case 10:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -187,6 +198,7 @@ void motorController (void) {
                 }
             }
             break;
+        //muestra el mensaje de ladrón interceptado, hace un sonido durante 10 segundos y guarda el mensaje de reiniciar sistema
         case 11:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -200,6 +212,7 @@ void motorController (void) {
                 }
             }
             break;
+        //muestra el mensaje de reiniciar sistema
         case 12:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -212,10 +225,12 @@ void motorController (void) {
                 }
             }
             break;
+        //espera a que se le envíe algo por la terminal
         case 13:
             if (SIO_CharAvail()) {
                 char c = SIO_GetChar();
                 if (!(c == '\r' || c == '\n')) {
+                    SIO_PutChar(c);
                     if (yesIdx < 3) {
                         yesBuf[yesIdx++] = c;
                     }
@@ -227,6 +242,7 @@ void motorController (void) {
                 }
             }
             break;
+        //compara si la respuesta es Si, sino lo vuelve a preguntar
         case 14:
             if (i < 3) {
                 if (yesBuf[i] == yes_aux[i]) {
@@ -245,6 +261,7 @@ void motorController (void) {
                 }
             }
             break;
+        //muestra el mensaje de abriendo puerta interior y hace un ruido corto
         case 15:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -252,10 +269,12 @@ void motorController (void) {
                     i++;
                 } else {
                     TI_ResetTics(timerHandle);
+                    speaker_sound(SONIDO_AGUDO, 200);
                     state = 16;
                 }
             }
             break;
+        //guarda el mensaje de cerrando puerta interior
         case 16:
             if (TI_GetTics(timerHandle) >= 1000) {
                 uid_ptr = CLOSE_INTERIOR_DOOR;
@@ -263,17 +282,18 @@ void motorController (void) {
                 state = 17;
             }
             break;
+        //muestra el mensaje de cerrando puerta interior
         case 17:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
                     SIO_SendChar(uid_ptr[i]);
                     i++;
                 } else {
-                    speaker_sound(SONIDO_AGUDO, 200);
                     state = 18;
                 }
             }
             break;
+        //espera a que se presione el botón y guarda el mensaje de salida solicitada
         case 18:
             if (getButton()) {
                 uid_ptr = EXIT_REQUEST;
@@ -281,6 +301,7 @@ void motorController (void) {
                 i = 0;
             }
             break;
+        //muestra el mensaje de salida solicitada
         case 19:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -293,10 +314,12 @@ void motorController (void) {
                 }
             }
             break;
+        //escribe por terminal la respuesta del usuario
         case 20:
             if (SIO_CharAvail()) {
                 char c = SIO_GetChar();
                 if (!(c == '\r' || c == '\n')) {
+                    SIO_PutChar(c);
                     if (yesIdx < 3) {
                         yesBuf[yesIdx++] = c;
                     }
@@ -308,6 +331,7 @@ void motorController (void) {
                 }
             }
             break;
+        //Si la respuesta es si, guarda el mensaje de abriendo las dos puertas, si el mensaje es no va al estado 22 y si es otra cosa vuelve a guardar el mensaje de salida solicitada
         case 21:
             if (yesIdx == 3 && yesBuf[0]=='Y' && yesBuf[1]=='e' && yesBuf[2]=='s') {
                 uid_ptr = OPEN_BOTH_DOORS;
@@ -324,6 +348,7 @@ void motorController (void) {
                 state = 19;
             }
             break;
+        //apaga todos los motores y guarda el mensaje de ladrón interceptado
         case 22:
             setMatrix(0); //parar la matriz
             setStop(1); //parar el altavoz
@@ -334,6 +359,7 @@ void motorController (void) {
             i = 0;
             state = 11;
             break;
+        //muestra el mensaje de abriendo las dos puertas y hace un sonido agudo
         case 23:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -346,6 +372,7 @@ void motorController (void) {
                 }
             }
             break;
+        //guarda el mensaje de cerrando las dos puertas
         case 24:
             if (TI_GetTics(timerHandle) >= 1000) {
                 i = 0;
@@ -353,6 +380,7 @@ void motorController (void) {
                 state = 25;
             }
             break;
+        //muestra el mensaje de cerrando las dos puertas
         case 25:
             if (SIO_TxAvail()) {
                 if (uid_ptr[i] != '\0') {
@@ -364,6 +392,7 @@ void motorController (void) {
                 }
             }
             break;
+        //acaba
         case 26:
             break;
     }
