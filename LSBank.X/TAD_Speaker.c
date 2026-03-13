@@ -38,7 +38,7 @@ void setStop (unsigned char st) {
 Cuando se usa el speaker:
 1. Cuando se ha abierto la puerta interior y suena agudo
 2. Cuando se introduce la contraseña tiene que ir subiendo la cantidad de pitidos, 0:00 - 1:45 pitido cada 1s y de 1:45 - 2:00 pitido cada 500ms y suena grave
-3. Si se pasa el tiempo o número de intentos, pitido durante 10 segundos (no especifica grave o agudo)
+3. Si se pasa el tiempo o número de intentos, pitido durante 10 segundos, grave
 4. Cuando se ha abierto la puerta exterior y suena agudo
 5. Cuando se presiona el botón de exit y se responde con Yes, suena de forma aguda
 */

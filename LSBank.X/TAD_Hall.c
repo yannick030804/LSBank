@@ -25,13 +25,13 @@
 
     switch (state) {
         case 0:
-            if (HALL == 1) {
+            if (HALL == 0) {
                 hallEvent = 1;
                 state = 1;
             }
             break;
         case 1:
-            if (HALL == 0) {
+            if (HALL == 1) {
                 state = 0;
             }
             break;

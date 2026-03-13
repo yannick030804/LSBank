@@ -19,7 +19,7 @@
 #pragma config OSC = HS
 #pragma config PBADEN = DIG
 #pragma config WDT = OFF
-#pragma config MCLRE = OFF
+#pragma config MCLRE = ON
 #pragma config DEBUG = OFF
 #pragma config PWRT = OFF
 #pragma config BOR = OFF

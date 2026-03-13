@@ -45,7 +45,6 @@ void motorController (void) {
             tries = 0;
             count = 0;
             yesIdx = 0;
-            busy = 0;
             state = 1;
             setOK(1);
             setAlarm(0);
@@ -62,10 +61,9 @@ void motorController (void) {
                 }
             }
             break;
-        //esperar a que el Hall esté a 1, guarda el mensaje de abriendo puerta exterior y hace un sonido
+        //esperar a que el Hall esté a 1, guarda el mensaje de abriendo puerta exterior
         case 2:
             if (getHall() == 1) {
-                speaker_sound(SONIDO_AGUDO, 200);
                 uid_ptr = OPEN_EXTERIOR_DOOR;
                 i = 0;
                 state = 3;
@@ -84,9 +82,10 @@ void motorController (void) {
                 }
             }
             break;
-        //esperar para guardar el mensaje de cerrando puerta exterior
+        //esperar para guardar el mensaje de cerrando puerta exterior y hace un sonido
         case 4:
             if (TI_GetTics(timerHandle) >= 1000) {
+                speaker_sound(SONIDO_AGUDO, 200);
                 uid_ptr = CLOSE_EXTERIOR_DOOR;
                 i = 0;
                 state = 5;
@@ -219,9 +218,10 @@ void motorController (void) {
             break;
         //esperar a que termine de sonar el altavoz
         case 27:
-            if (TI_GetTics(timerHandle) > 5000) {
+            if (TI_GetTics(timerHandle) >= 5000) {
                 state = 12;
             }
+            break;
         //muestra el mensaje de reiniciar sistema
         case 12:
             if (SIO_TxAvail()) {
@@ -245,6 +245,8 @@ void motorController (void) {
                         yesBuf[yesIdx++] = c;
                     }
                 } else {
+                    SIO_SendChar('\r');
+                    SIO_SendChar('\n');
                     yesBuf[yesIdx] = '\0';
                     i = 0;
                     count = 0;
@@ -279,7 +281,6 @@ void motorController (void) {
                     i++;
                 } else {
                     TI_ResetTics(timerHandle);
-                    speaker_sound(SONIDO_AGUDO, 200);
                     state = 16;
                 }
             }
@@ -288,6 +289,7 @@ void motorController (void) {
         case 16:
             if (TI_GetTics(timerHandle) >= 1000) {
                 uid_ptr = CLOSE_INTERIOR_DOOR;
+                speaker_sound(SONIDO_AGUDO, 200);
                 i = 0;
                 state = 17;
             }
@@ -334,6 +336,8 @@ void motorController (void) {
                         yesBuf[yesIdx++] = c;
                     }
                 } else {
+                    SIO_SendChar('\r');
+                    SIO_SendChar('\n');
                     yesBuf[yesIdx] = '\0';
                     i = 0;
                     count = 0;
@@ -377,7 +381,6 @@ void motorController (void) {
                     i++;
                 } else {
                     TI_ResetTics(timerHandle);
-                    speaker_sound(SONIDO_AGUDO, 200);
                     state = 24;
                 }
             }
@@ -387,6 +390,7 @@ void motorController (void) {
             if (TI_GetTics(timerHandle) >= 1000) {
                 i = 0;
                 uid_ptr = CLOSE_BOTH_DOORS;
+                speaker_sound(SONIDO_AGUDO, 200);
                 state = 25;
             }
             break;
