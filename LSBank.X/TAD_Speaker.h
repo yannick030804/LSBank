@@ -14,6 +14,8 @@ void setSpeaker (unsigned char st);
 
 void setStop (unsigned char st);
 
+void Speaker_Reset (void);
+
 void speaker_sound (unsigned char tipo, unsigned int duracion_ms);
 
 void processSpeakerSound (void);

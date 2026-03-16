@@ -48,6 +48,7 @@ void motorController (void) {
             state = 1;
             setOK(1);
             setAlarm(0);
+            Speaker_Reset();
             break;
         //mostrar mensaje New Day por terminal
         case 1:

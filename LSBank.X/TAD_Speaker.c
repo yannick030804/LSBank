@@ -18,6 +18,7 @@ static unsigned char soundActive = 0;
 static unsigned long soundDuration = 0;
 static unsigned long soundPeriod = 0;
 static unsigned char soundTimerHandle;
+static unsigned char motorState = 0;
 
 void Speaker_Init (void) {
     TI_NewTimer(&timerHandle);
@@ -32,6 +33,17 @@ void setSpeaker (unsigned char st) {
 
 void setStop (unsigned char st) {
     stop = st;
+}
+
+void Speaker_Reset (void) {
+    count = 0;
+    start = 0;
+    stop = 0;
+    soundActive = 0;
+    soundDuration = 0;
+    soundPeriod = 0;
+    motorState = 0;
+    SPEAKER = 0;
 }
 
 /*
@@ -80,21 +92,19 @@ void processSpeakerSound (void) {
 }
 
 void motorSpeaker (void) {
-    static unsigned char state = 0;
-
     processSpeakerSound();
 
-    switch (state) {
+    switch (motorState) {
         case 0:
             if (start == 1) {
-                state = 1;
+                motorState = 1;
                 TI_ResetTics(timerHandle);
                 count = 0;
             }
             break;
         case 1:
             if (stop == 1) {
-                state = 0;
+                motorState = 0;
                 start = 0;
                 stop = 0;
                 count = 0;
@@ -105,7 +115,7 @@ void motorSpeaker (void) {
                 TI_ResetTics(timerHandle);
                 count++;
                 if (count >= 105) {
-                    state = 2;
+                    motorState = 2;
                     TI_ResetTics(timerHandle);
                     count = 0;
                 }
@@ -113,7 +123,7 @@ void motorSpeaker (void) {
             break;
         case 2:
             if (stop == 1) {
-                state = 0;
+                motorState = 0;
                 start = 0;
                 stop = 0;
                 count = 0;
@@ -124,7 +134,7 @@ void motorSpeaker (void) {
                 TI_ResetTics(timerHandle);
                 count++;
                 if (count >= 30) {
-                    state = 0;
+                    motorState = 0;
                     start = 0;
                     count = 0;
                 }
